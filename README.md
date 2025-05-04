@@ -113,3 +113,6 @@ AIの回答：「それは素晴らしい気づきですね！自分の欠点に
   - OpenAI API（GPT-3.5 Turbo） によるAI応答の生成
 - LINE通知機能
   - LINE Messaging API を用いて、リマインダー通知を実装予定
+
+## ■ 画面遷移図URL
+https://www.figma.com/design/ArC16TI9fsZ7pF4YN1JtTZ/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C?node-id=1-2&t=EgvhTTMGDrfRxcvU-1
