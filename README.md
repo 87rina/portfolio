@@ -128,3 +128,6 @@ AIの回答：「それは素晴らしい気づきですね！自分の欠点に
 
 ## ■ 画面遷移図URL
 https://www.figma.com/design/ArC16TI9fsZ7pF4YN1JtTZ/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C?node-id=1-2&t=EgvhTTMGDrfRxcvU-1
+
+## ■ ER図URL
+https://drive.google.com/file/d/1r-AEwDNSqlkeBmxSoz6aECKYG8xUKv0a/view?usp=sharing
