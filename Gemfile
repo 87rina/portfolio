@@ -20,7 +20,7 @@ gem "cssbundling-rails"
 gem "jbuilder"
 # 追加のGemファイル
 # CSS
-gem "tailwindcss-rails", "~> 3.3.1"
+gem "tailwindcss-rails", "~> 4.2.3"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
