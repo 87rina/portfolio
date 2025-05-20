@@ -35,5 +35,13 @@ module Myapp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.generators do |g|
+      g.skip_routes true # ルーティングの記述を加えないようにする
+      g.helper false # ヘルパーファイルを自動生成しないようにする
+      g.test_framework nil # テストフレームワークを使わないようにする
+    end
+
+    config.i18n.default_locale = :ja # デフォルトの言語
+    config.time_zone = "Tokyo" # タイムゾーン
   end
 end
