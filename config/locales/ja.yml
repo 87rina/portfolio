@@ -1,0 +1,6 @@
+ja:
+  devise:
+    sessions:
+      signed_in: "ログインしました"
+      new:
+        title: "ログイン"
