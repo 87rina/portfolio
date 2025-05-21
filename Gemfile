@@ -21,6 +21,8 @@ gem "jbuilder"
 # 追加のGemファイル
 # CSS
 gem "tailwindcss-rails", "~> 3.3.1"
+# 認証機能
+gem "devise"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
