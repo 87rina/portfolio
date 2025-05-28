@@ -1,0 +1,14 @@
+<header>
+  <nav class="bg-orange-100">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between p-2">
+    <%= link_to "自分LOVE", '/' %>
+      <ul class="flex">
+          
+        <li class="text-base mr-5">
+          <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+</header>
