@@ -1,7 +1,7 @@
 <div class="container mx-auto px-4">
   <div class="flex justify-center">
     <div class="w-full max-w-lg">
-      <h1 class="text-2xl font-bold mb-6 text-gray-400">新規登録</h1> 
+      <h1 class="text-2xl text-center font-bold mb-6 text-gray-400">新規登録</h1> 
       <%= form_with model: resource, url: registration_path(resource_name), local: true do |f| %>
         
         <div>
@@ -17,14 +17,17 @@
           <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> 文字以上)</em>
           <% end %>
-          <%= f.password_field :password, class: "mt-1 mb-6 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+          <%= f.password_field :password, class: "rounded-full mt-1 mb-6 block w-full px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
         </div>
         <div>
           <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
-          <%= f.password_field :password_confirmation, class: "mt-1 mb-6 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
+          <%= f.password_field :password_confirmation, class: "rounded-full mt-1 mb-6 block w-full px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" %>
         </div>
-        <%= f.submit '登録', class: "w-200 bg-orange-400 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md shadow-md transition" %>
+        <%= f.submit '新規登録', class: "w-200 bg-orange-400 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md shadow-md transition" %>
       <% end %>
+      <div class='text-orange-400 hover:text-orange-600'>
+        <%= link_to 'すでにアカウントをお持ちの方はこちら', new_user_session_path %>
+      </div>  
     </div>
   </div>
 </div>
