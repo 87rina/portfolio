@@ -18,17 +18,21 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
-  <body  class="flex flex-col min-h-screen">
-    <% if user_signed_in? %>
-      <%= render 'shared/header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <main class="container flex-grow mx-auto mt-10 px-5 flex">
-      <%= yield %>
-    </main>
-    <%= render 'shared/footer' %>
+  <body class="flex flex-col min-h-screen">
+    <div class="bg-hero-pattern bg-cover bg-center min-h-screen">
+      <div class="flex flex-col min-h-screen">
+        <% if user_signed_in? %>
+          <%= render 'shared/header' %>
+        <% else %>
+          <%= render 'shared/before_login_header' %>
+        <% end %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <main class="container flex-grow mx-auto mt-5 flex">
+          <%= yield %>
+        </main>
+        <%= render 'shared/footer' %>
+      </div>
+    </div>
   </body>
 </html>
