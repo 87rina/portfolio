@@ -23,6 +23,9 @@ gem "jbuilder"
 gem "tailwindcss-rails", "~> 3.3.1"
 # 認証機能
 gem "devise"
+# チャット用
+gem "ruby-openai", "~> 8.1"
+gem "sidekiq", "~> 7.2"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
