@@ -1,0 +1,2 @@
+class AiResponse < ApplicationRecord
+end
