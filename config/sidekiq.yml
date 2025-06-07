@@ -1,0 +1,6 @@
+:verbose: true # 詳細ログ出力の有無
+:pidfile: ./tmp/pids/sidekiq.pid # Sidekiq プロセスのプロセスIDを保存するファイル
+:logfile: ./log/sidekiq.log # Sidekiq のログ出力先
+:concurrency: 5 # 同時に実行できるジョブの数
+:queues: # 処理対象のジョブキュー名
+  - default
