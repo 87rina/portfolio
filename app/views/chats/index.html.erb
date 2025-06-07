@@ -6,6 +6,27 @@
 
   <!-- chat -->
   <div class="w-3/5 p-4 overflow-y-auto">
+  <div class="container mx-auto px-4">
+  <div class="flex justify-center">
+    <div class="w-full max-w-lg">
+      <h1 class="text-2xl font-bold mb-6 text-gray-400">今日のいいところ</h1>
+
+      <%= form_with url: chats_path, method: :post, local: false do |f| %>
+        <div>
+          <%= f.text_area :content, placeholder: "ポジティブな言葉で書いてみましょう！" %>
+        </div>
+        <%= f.submit "さすが自分！",class: "w-200 bg-orange-400 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md shadow-md transition" %>
+      <% end %>
+
+      <% stream_id = user_signed_in? ? "chat_user_#{current_user.id}" : "chat_guest_#{session.id}" %>
+      <%= turbo_stream_from stream_id %>
+
+      <div id="chat_messages">
+        <%= render partial: "message", collection: @messages, as: :message %>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
 
   <!-- リード文 -->
