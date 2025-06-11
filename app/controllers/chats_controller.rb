@@ -2,16 +2,7 @@ class ChatsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index create]
 
   def index
-    if user_signed_in?
-      @messages = current_user.posts.includes(:ai_response).order(created_at: :asc).map { |post|
-        {
-          user: post.content,
-          ai: post.ai_response&.content
-        }
-      }
-    else
-      @messages = session[:chat_history] || []
-    end
+    
   end
 
   def create
