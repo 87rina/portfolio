@@ -25,7 +25,7 @@ gem "tailwindcss-rails", "~> 3.3.1"
 gem "devise"
 # チャット用
 gem "ruby-openai", "~> 8.1"
-gem "sidekiq", "~> 7.2"
+gem "sidekiq", "~> 8.0"
 # Radis用
 gem "redis", "~> 4.8"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
