@@ -2,7 +2,6 @@ class ChatsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index create]
 
   def index
-    
   end
 
   def create
