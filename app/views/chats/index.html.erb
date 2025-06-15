@@ -1,10 +1,10 @@
 <!-- menu -->
-<div class="w-1/5 p-4">
+<div class="md:w-1/5 p-4">
   <%= render 'menu' %>
 </div>
 
 <!-- chat -->
-<div class="w-3/5 p-4 overflow-y-auto">
+<div class="md:w-3/5 p-4 overflow-y-auto">
   <div class="container mx-auto px-4">
     <div class="flex justify-center">
       <div class="w-full max-w-xs text-center ">
@@ -12,11 +12,11 @@
       <!-- ユーザー入力フォーム -->
       <%= form_with url: chats_path, method: :post, local: false do |f| %>
         <div class="flex justify-center mb-4">
-          <div class="w-full max-w-md border-4 border-amber-400 rounded">
-            <%= f.text_area :content, placeholder: "ポジティブな言葉で書いてみましょう！", class: "w-full p-2" %>
+          <div class="w-full max-w-md border-4 border-amber-400 rounded-md p-4">
+            <%= f.text_area :content, placeholder: "ポジティブな言葉で書いてみましょう！", class: "w-full rounded-md" %>
           </div>
         </div>
-          <%= f.submit "さすが自分！",class: "w-200 bg-amber-400 hover:bg-cyan-400 text-white font-bold py-2 px-4 rounded-md shadow-md transition" %> 
+          <%= f.submit "さすが自分！",class: "w-200 bg-amber-400 hover:bg-cyan-300 text-white font-bold py-2 px-4 rounded-md shadow-md transition" %> 
        <% end %>
 
       <% stream_id = user_signed_in? ? "chat_user_#{current_user.id}" : "chat_guest_#{session.id}" %>
@@ -31,6 +31,6 @@
 </div>
 
 <!-- リード文 -->
-<div class="w-1/5  p-4">
+<div class="md:w-1/5  p-4">
   <%= render 'lead' %>
 </div>
