@@ -2,12 +2,10 @@
   <nav class="bg-amber-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between p-2">
     <%= link_to "自分LOVE", (user_signed_in? ? root_path : root_path) %>
-      <ul class="flex">
-          
+      <ul class="flex">   
         <li class="text-base mr-5">
           <%= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete } %>
-        </li>
-        
+        </li> 
       </ul>
     </div>
   </nav>
