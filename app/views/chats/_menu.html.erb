@@ -1,9 +1,9 @@
 <% items = [
-  { label: "カレンダー",        bg: "bg-amber-200" },
-  { label: "キャラクター変更",  bg: "bg-amber-100" },
-  { label: "書き方に困ったら",  bg: "bg-amber-50" },
-  { label: "アプリの使い方",    bg: "bg-cyan-50" },
-  { label: "プロフィール設定",  bg: "bg-cyan-200" },
+  { label: "カレンダー",        bg: "bg-amber-200", icon: "calendar" },
+  { label: "キャラクター変更",  bg: "bg-amber-100", icon: "character" },
+  { label: "書き方に困ったら",  bg: "bg-amber-50", icon: "light" },
+  { label: "アプリの使い方",    bg: "bg-cyan-50", icon: "qestion" },
+  { label: "プロフィール設定",  bg: "bg-cyan-200", icon: "setting" },
 ] %>
 
 <!-- PC画面 -->
@@ -11,6 +11,7 @@
   <% items.each do |item| %>
     <div class="flex-1 flex items-end mb-1 px-3 py-1 <%= item[:bg] %> drop-shadow-lg">
       <h3 class="text-lg font-bold text-gray-800"><%= item[:label] %></h3>
+      <%= inline_svg(item[:icon], class: "w-8 h-8 text-gray-800 ml-auto") %>
     </div>
   <% end %>
 </div>
