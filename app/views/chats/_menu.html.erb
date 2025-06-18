@@ -1,21 +1,13 @@
+<% items = [
+  { label: "カレンダー",        bg: "bg-amber-200" },
+  { label: "キャラクター変更",  bg: "bg-amber-100" },
+  { label: "書き方に困ったら",  bg: "bg-amber-50" },
+  { label: "アプリの使い方",    bg: "bg-cyan-50" },
+  { label: "プロフィール設定",  bg: "bg-cyan-200" },
+] %>
 
-
-  <div class="h-1/5 bg-amber-200 mb-1 drop-shadow-lg flex items-end px-3 py-1">
-    <p class="text-xl font-bold text-gray-500">カレンダー</p>
+<% items.each do |item| %>
+  <div class="h-1/5 mb-1 drop-shadow-lg flex items-end px-3 py-1 <%= item[:bg] %>">
+    <p class="sm:text-xs md:text-base lg:text-xl font-bold text-gray-500"><%= item[:label] %></p>
   </div>
-
-  <div class="h-1/5 bg-amber-100 mb-1 drop-shadow-lg flex items-end px-3 py-1">
-    <p class="text-xl font-bold text-gray-500">キャラクター変更</p>
-  </div>
-
-  <div class="h-1/5 bg-amber-50 mb-1 drop-shadow-lg flex items-end px-3 py-1">
-    <p class="text-xl font-bold text-gray-500">書き方に困ったら</p>
-  </div>
-
-  <div class="h-1/5 bg-cyan-50 mb-1 drop-shadow-lg flex items-end px-3 py-1">
-    <p class="text-xl font-bold text-gray-500">アプリの使い方</p>
-  </div>
-
-  <div class="h-1/5 bg-cyan-200 mb-1 drop-shadow-lg flex items-end px-3 py-1">
-    <p class="text-xl font-bold text-gray-500">プロフィール設定</p>
-  </div>
+<% end %>
