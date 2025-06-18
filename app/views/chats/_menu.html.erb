@@ -6,8 +6,11 @@
   { label: "プロフィール設定",  bg: "bg-cyan-200" },
 ] %>
 
-<% items.each do |item| %>
-  <div class="h-1/5 mb-1 drop-shadow-lg flex items-end px-3 py-1 <%= item[:bg] %>">
-    <p class="sm:text-xs md:text-base lg:text-xl font-bold text-gray-500"><%= item[:label] %></p>
-  </div>
-<% end %>
+<!-- PC画面 -->
+<div class="hidden md:flex md:flex-col md:h-screen mb-4">
+  <% items.each do |item| %>
+    <div class="flex-1 flex items-end mb-1 px-3 py-1 <%= item[:bg] %> drop-shadow-lg">
+      <h3 class="text-lg font-bold text-gray-800"><%= item[:label] %></h3>
+    </div>
+  <% end %>
+</div>
