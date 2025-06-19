@@ -22,7 +22,7 @@
   </head>
 
   <body class="flex flex-col min-h-screen">
-    <div class="bg-hero-pattern bg-cover bg-center min-h-screen">
+    <div class="bg-hero-pattern bg-cover bg-top-right">
       <div class="flex flex-col min-h-screen">
         <% if user_signed_in? %>
           <%= render 'shared/header' %>
@@ -31,7 +31,7 @@
         <% end %>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-        <main class="container flex-grow mb-3 flex">
+        <main class="flex-grow">
           <%= yield %>
         </main>
         <%= render 'shared/footer' %>

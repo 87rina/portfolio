@@ -1,21 +1,28 @@
+<% items = [
+  { label: "カレンダー　　",        bg: "bg-amber-200", icon: "calendar" },
+  { label: "キャラクター変更",  bg: "bg-amber-100", icon: "character" },
+  { label: "書き方に困ったら",  bg: "bg-amber-50", icon: "light" },
+  { label: "アプリの使い方",    bg: "bg-cyan-50", icon: "qestion" },
+  { label: "プロフィール設定",  bg: "bg-cyan-200", icon: "setting" },
+] %>
+
+<!-- スマホ画面 -->
+<div class="block md:hidden grid grid-cols-5">
+  <% items.each do |item| %>
+    <button class=" <%= item[:bg] %> flex flex-col justify-center items-center p-2 ">
+      <%= inline_svg(item[:icon], class: "w-6 h-6 text-gray-800 my-2") %>
+      <p class="text-[8px] text-gray-800"><%= item[:label] %></p>
+    </button>
+  <% end %>
+</div>
 
 
-  <div class="h-1/5 bg-amber-200 mb-1 drop-shadow-lg flex items-end px-3 py-1">
-    <p class="text-xl font-bold text-gray-500">カレンダー</p>
-  </div>
-
-  <div class="h-1/5 bg-amber-100 mb-1 drop-shadow-lg flex items-end px-3 py-1">
-    <p class="text-xl font-bold text-gray-500">キャラクター変更</p>
-  </div>
-
-  <div class="h-1/5 bg-amber-50 mb-1 drop-shadow-lg flex items-end px-3 py-1">
-    <p class="text-xl font-bold text-gray-500">書き方に困ったら</p>
-  </div>
-
-  <div class="h-1/5 bg-cyan-50 mb-1 drop-shadow-lg flex items-end px-3 py-1">
-    <p class="text-xl font-bold text-gray-500">アプリの使い方</p>
-  </div>
-
-  <div class="h-1/5 bg-cyan-200 mb-1 drop-shadow-lg flex items-end px-3 py-1">
-    <p class="text-xl font-bold text-gray-500">プロフィール設定</p>
-  </div>
+<!-- PC画面 -->
+<div class="hidden md:flex md:flex-col md:h-screen">
+  <% items.each do |item| %>
+    <div class="flex-1 flex items-end mb-1 <%= item[:bg] %> drop-shadow-lg">
+      <h3 class="text-base lg:text-lg font-bold text-gray-800"><%= item[:label] %></h3>
+      <%= inline_svg(item[:icon], class: "w-8 h-8 text-gray-800 ml-auto") %>
+    </div>
+  <% end %>
+</div>

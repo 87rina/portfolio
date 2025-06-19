@@ -1,47 +1,58 @@
-<!-- menu -->
-<div class="md:w-1/5 p-4">
-  <%= render 'menu' %>
-</div>
 
-<!-- chat -->
-<div class="md:w-3/5 p-4 overflow-y-auto">
-  <div class="mx-auto px-4">
-    <div class="flex justify-center">
-      <div class="w-full max-w-xs text-center ">
-        <h1 class="text-2xl  mt-10 mb-6 text-gray-500">今日のいいところ</h1>
-        <!-- ユーザー入力フォーム -->
-        <%= form_with url: chats_path, method: :post, local: false do |f| %>
-          <div class="flex justify-center mb-4">
-            <div class="w-full max-w-md border-4 border-amber-400 rounded-md p-4">
-              <%= f.text_area :content, placeholder: "ポジティブな言葉で書いてみましょう！", class: "w-full rounded-md" %>
+<div class="flex flex-col md:flex-row flex flex-col md:flex-row h-[calc(100vh-HEADER_FOOTER_HEIGHT_px)]">
+  <!-- menu -->
+  <div class="order-3 md:order-1 w-full md:w-1/5 p-4 fixed bottom-0 left-0 z-10 bg-white md:static md:h-auto">
+      <%= render 'menu' %>
+  </div>
+
+  <!-- chat -->
+  <div class="order-2 md:order-2 w-full md:w-3/5 p-4 overflow-hidden">
+    <div class="mx-auto p-2">
+      <div class="flex justify-center">
+        <div class="w-full text-center ">
+          <h1 class="sm:text-sm md:text-xl lg:text-2xl mt-4 mb-6 text-gray-500">今日のいいところ</h1>
+          <!-- ユーザー入力フォーム -->
+          <%= form_with url: chats_path, method: :post, local: false do |f| %>
+            <div class="flex justify-center mb-4">
+              <div class="w-full max-w-md border-4 border-amber-400 rounded-md">
+                <%= f.text_area :content, placeholder: "ポジティブな言葉で書いてみましょう！", class: "w-full rounded-md text-center" %>
+              </div>
             </div>
+            <%= f.submit "さすが自分！",class: "w-200 bg-amber-400 hover:bg-cyan-300 text-white font-bold py-2 px-4 rounded-md shadow-md transition" %> 
+          <% end %>
+          <!-- xシェアボタン　本リリース時、URL変更-->
+          <div class="mt-2 text-gray-600">
+            <a href="https://twitter.com/intent/tweet?text=ポジティブを育てよう！&url=https%3A%2F%2Flocalhost:3003/&hashtags"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="my-x-share-button"
+            >
+            Xでシェア
+            </a>
           </div>
-          <%= f.submit "さすが自分！",class: "w-200 bg-amber-400 hover:bg-cyan-300 text-white font-bold py-2 px-4 rounded-md shadow-md transition" %> 
-        <% end %>
-         <!-- xシェアボタン　本リリース時、URL変更-->
-        <div class="mt-4 text-gray-600">
-          <a href="https://twitter.com/intent/tweet?text=ポジティブを育てよう！&url=https%3A%2F%2Flocalhost:3003/&hashtags"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="my-x-share-button"
-          >
-          Xでシェア
-          </a>
-        </div>
-        <div class="w-full max-w-md border-4 border-cyan-400 bg-white rounded-md p-4 mt-6">
-          <% stream_id = user_signed_in? ? "chat_user_#{current_user.id}" : "chat_guest_#{session.id}" %>
-          <%= turbo_stream_from stream_id %>
+          <div class="flex justify-center mt-4">
+            <div class="w-full max-w-md border-4 border-cyan-400 rounded-md p-4">
+            <% stream_id = user_signed_in? ? "chat_user_#{current_user.id}" : "chat_guest_#{session.id}" %>
+            <%= turbo_stream_from stream_id %>
       
-          <div id="chat_messages">
-            <%= render partial: "message", collection: @messages, as: :message %>
+              <div id="chat_messages">
+                <%= render partial: "message", collection: @messages, as: :message %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- リード文 -->
-<div class="md:w-1/5  p-4">
-  <%= render 'lead' %>
+  <!-- リード文 -->
+  <div class="order-1 md:order-3 w-full md:w-1/5  p-4">
+    <div class="h-full flex items-start justify-end p-4">
+      <% if user_signed_in? %>
+        <%= render 'lead' %>
+      <% else %>
+        <%= render 'before_login_lead' %>
+      <% end %>
+    </div>
+  </div>
 </div>
