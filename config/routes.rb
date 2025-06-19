@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   root "chats#index"
 
   resources :chats, only: [ :index, :create ]
+  resources :posts, only: [ :index ]
 end

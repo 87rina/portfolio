@@ -1,0 +1,21 @@
+
+  <!-- ページトップ -->
+  <div class=flex flex-col md:flex-row>
+    <div class="md:w-1/5"> 
+    </div>
+    <div class="md:w-3/5">
+      <h1 class="sm:text-sm md:text-xl lg:text-2xl mt-4 mb-6 text-gray-500 text-center">あなたのポジティブ一覧</h1> 
+    </div>
+    <div class="md:w-1/5"> 
+    </div>
+  </div>
+
+  <!-- 記録一覧 -->
+  <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 w-full justify-center mx-6 my-4">
+    <% if @posts.present? %>
+      <%= render @posts %>
+    <% else %>
+      <div class="sm:text-sm md:text-xl lg:text-2xl text-center mt-3 mb-3 text-gray-600">記録がありません<br>今日のポジティブを記録しましょう！</div>
+    <% end %>
+  </div>
+  
