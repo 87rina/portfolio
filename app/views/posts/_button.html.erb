@@ -1,12 +1,10 @@
-<div>
-  <ul class="flex flex-col space-y-2">
-    <li class="text-base flex ">
+<div class="mt-4 mb-6 text-gray-700 space-y-2">
+    <p class="text-sm md:text-base lg:text-lg flex ">
       <%= inline_svg("return", class: "w-5 h-5 text-gray-800 mx-1 my-1") %>
-      <%= link_to "カレンダーに戻る", "#" %>
-    </li>
-    <li class="text-base flex ">
+      <%= link_to "カレンダーに戻る", "#", class: "hidden md:block" %>
+    </p>
+    <p class="text-sm md:text-base lg:text-lg flex ">
      <%= inline_svg("pencil", class: "w-5 h-5 text-gray-800 mx-1 my-1") %>
-      <%= link_to "ポジティブを書く", root_path, class: "hover:text-cyan-500" %>
-    </li>
-  </ul>
+      <%= link_to "ポジティブを書く", root_path, class: "hover:text-cyan-500 hidden md:block" %>
+    </p>
 </div>
