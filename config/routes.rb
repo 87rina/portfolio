@@ -18,4 +18,5 @@ Rails.application.routes.draw do
 
   resources :chats, only: [ :index, :create ]
   resources :posts, only: [ :index ]
+  delete "/chat_reset", to: "posts#reset_chat"
 end

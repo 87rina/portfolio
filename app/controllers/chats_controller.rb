@@ -19,6 +19,11 @@ class ChatsController < ApplicationController
     end
   end
 
+  def reset_chat
+    current_user.posts.destroy_all
+    redirect_to root_path
+  end
+
   private
 
   def post_params

@@ -18,18 +18,10 @@
                 <%= f.text_area :content, placeholder: "ポジティブな言葉で書いてみましょう！", class: "w-full rounded-md text-center" %>
               </div>
             </div>
+        
             <%= f.submit "さすが自分！",class: "w-200 bg-amber-400 hover:bg-cyan-300 text-white font-bold py-2 px-4 rounded-md shadow-md transition" %> 
           <% end %>
-          <!-- xシェアボタン　本リリース時、URL変更-->
-          <div class="mt-2 text-gray-600">
-            <a href="https://twitter.com/intent/tweet?text=ポジティブを育てよう！&url=https%3A%2F%2Flocalhost:3003/&hashtags"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="my-x-share-button"
-            >
-            Xでシェア
-            </a>
-          </div>
+          
           <div class="flex justify-center mt-4">
             <div class="w-full max-w-md border-4 border-cyan-400 rounded-md p-4 bg-white">
             <% stream_id = user_signed_in? ? "chat_user_#{current_user.id}" : "chat_guest_#{session.id}" %>
@@ -38,6 +30,22 @@
               <div id="chat_messages">
                 <%= render partial: "message", collection: @messages, as: :message %>
               </div>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <!-- xシェアボタン　本リリース時、URL変更-->
+            <div class="mx-10 my-2">
+              <a href="https://twitter.com/intent/tweet?text=ポジティブを育てよう！&url=https%3A%2F%2Flocalhost:3003/&hashtags"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="my-x-share-button text-gray-600 hover:text-cyan-400"
+              >
+              Xでシェア
+              </a>
+            </div>
+            <!-- リセットボタン -->
+            <div class="mx-10 my-2 text-gray-600 hover:text-amber-400">
+              <%= button_to '新しく書く', chat_reset_path, method: :delete %>
             </div>
           </div>
         </div>
