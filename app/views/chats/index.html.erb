@@ -10,7 +10,7 @@
     <div class="mx-auto p-2">
       <div class="flex justify-center">
         <div class="w-full text-center ">
-          <h1 class="sm:text-sm md:text-xl lg:text-2xl mt-4 mb-6 text-gray-500">今日のいいところ</h1>
+          <h1 class="sm:text-sm md:text-xl lg:text-2xl mt-4 mb-6 text-gray-600">今日のいいところ</h1>
           <!-- ユーザー入力フォーム -->
           <%= form_with url: chats_path, method: :post, local: false do |f| %>
             <div class="flex justify-center mb-4">
@@ -31,7 +31,7 @@
             </a>
           </div>
           <div class="flex justify-center mt-4">
-            <div class="w-full max-w-md border-4 border-cyan-400 rounded-md p-4">
+            <div class="w-full max-w-md border-4 border-cyan-400 rounded-md p-4 bg-white">
             <% stream_id = user_signed_in? ? "chat_user_#{current_user.id}" : "chat_guest_#{session.id}" %>
             <%= turbo_stream_from stream_id %>
       
