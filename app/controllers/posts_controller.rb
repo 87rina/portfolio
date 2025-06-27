@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.includes(:user).order(created_at: :desc)
+    @posts = current_user.posts.order(created_at: :desc)
     # 合計件数
     @total_posts_count = @posts.count
     # 連続記録日数
