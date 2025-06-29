@@ -20,7 +20,12 @@ class ChatsController < ApplicationController
   end
 
   def reset_chat
-    current_user.posts.destroy_all
+    if current_user
+      current_user.posts.destroy_all
+    else
+      Post.where(session_id: session.id).destroy_all
+    end
+  
     redirect_to root_path
   end
 
