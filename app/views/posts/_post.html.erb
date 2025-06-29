@@ -1,4 +1,4 @@
-<% @posts.group_by { |post| post.created_at.to_date }.each do |date, posts| %>
+<% posts.group_by { |post| post.created_at.to_date }.each do |date, posts| %>
   <div class="col-span-full mb-4">
     <h2 class="text-lg text-gray-700 border-b pb-2 mb-2"><%= date.strftime("%Y年%m月%d日") %></h2>
     <div class="grid gap-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
