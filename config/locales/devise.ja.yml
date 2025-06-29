@@ -32,8 +32,10 @@ ja:
         user:
           attributes:
             password:
+              blank: "を入力してください"
               too_short: "は%{count}文字以上で入力してください"
             password_confirmation:
+              blank: "を入力してください"
               confirmation: "が一致しません"
   devise:
     confirmations:
@@ -142,8 +144,10 @@ ja:
   errors:
     attributes:
       name:
+        blank: "を入力してください"
         taken: "この名前はすでに使われています"
       email:
+        blank: "を入力してください"
         taken: "このメールアドレスはすでに使われています"
     messages:
       already_confirmed: は既に登録済みです。ログインしてください。
