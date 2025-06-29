@@ -25,7 +25,7 @@ class ChatsController < ApplicationController
     else
       Post.where(session_id: session.id).destroy_all
     end
-  
+
     redirect_to root_path
   end
 
