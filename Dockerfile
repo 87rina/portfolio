@@ -27,8 +27,17 @@ FROM base AS build
 
 # Install packages needed to build gems and node modules
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential git libpq-dev node-gyp pkg-config python-is-python3 && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+    apt-get install --no-install-recommends -y \
+    build-essential \
+    libpq-dev \
+    curl \
+    libjemalloc2 \
+    libvips \
+    pkg-config \
+    python-is-python3 \
+    node-gyp \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install JavaScript dependencies
 ARG NODE_VERSION=20.19.2
@@ -58,6 +67,7 @@ RUN bundle exec bootsnap precompile app/ lib/
 # Precompiling assets for production without requiring secret RAILS_MASTER_KEY
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
+RUN yarn build:css
 
 RUN rm -rf node_modules
 
@@ -79,5 +89,4 @@ USER 1000:1000
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
-CMD ["./bin/rails", "server"]
+CMD ["./bin/rails", "server", "-b", "0.0.0.0", "-p", "8080"]
