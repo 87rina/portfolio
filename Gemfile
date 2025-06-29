@@ -28,6 +28,8 @@ gem "ruby-openai", "~> 8.1"
 gem "sidekiq", "~> 7.2"
 # Radis用
 gem "redis", "~> 4.8"
+# 翻訳
+gem "devise-i18n"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
