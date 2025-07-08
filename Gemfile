@@ -20,7 +20,7 @@ gem "cssbundling-rails"
 gem "jbuilder"
 # 追加のGemファイル
 # CSS
-gem "tailwindcss-rails", "~> 3.3.1"
+gem "tailwindcss-rails", "~> 4.3.0"
 # 認証機能
 gem "devise"
 # チャット用
