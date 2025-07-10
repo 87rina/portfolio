@@ -15,8 +15,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "chats#index"
+  delete "/chat_reset", to: "posts#reset_chat"
+  get "conversation_history", to: "conversations#show_history"
 
   resources :chats, only: [ :index, :create ]
   resources :posts, only: [ :index ]
-  delete "/chat_reset", to: "posts#reset_chat"
 end
