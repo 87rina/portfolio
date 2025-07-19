@@ -1,9 +1,10 @@
 class ConversationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show_history]
   def show_history
     posts = if user_signed_in?
       current_user.posts.includes(:ai_response)
     else
-      Post.includes(:ai_response).where(session_id: session.id)
+      Post.includes(:ai_response).where(session_id: session.id.to_s)
     end
     # PostとAiResponseをcreated_atでソート
     combined_messages = posts.flat_map do |post|
