@@ -4,3 +4,6 @@ ja:
       signed_in: "ログインしました"
       new:
         title: "ログイン"
+  time:
+    formats:
+      short: "%Y/%m/%d %H:%M"
