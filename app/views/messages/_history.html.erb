@@ -1,0 +1,25 @@
+<div id="conversation-history">
+  <div class="w-full max-w-md border border-gray-400 rounded-md">
+    <% if @messages.any? %>
+      <% @messages.each do |message| %>
+        <% if message.is_a?(Post) %>
+          <div class="flex justify-end">
+            <div class="message-item">
+              <p><%= message.content %></p>
+              <small class="text-xs text-gray-500"><%= l message.created_at, format: :short %></small>
+            </div>
+          </div>
+        <% elsif message.is_a?(AiResponse) %>
+          <div class="flex justify-start">
+            <div class="message-item">
+              <p><%= message.content %></p>
+              <small class="text-xs text-gray-500"><%= l message.created_at, format: :short %></small>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p>まだ会話履歴はありません。</p>
+    <% end %>
+  </div>
+</div>
