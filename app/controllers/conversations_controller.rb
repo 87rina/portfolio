@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show_history]
+  skip_before_action :authenticate_user!, only: [ :show_history ]
   def show_history
     posts = if user_signed_in?
       current_user.posts.includes(:ai_response)
