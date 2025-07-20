@@ -8,6 +8,7 @@ class GenerateAiResponseJob < ApplicationJob
     ai_reply = OpenaiClient.new.generate_response(user_text)
 
     post.create_ai_response!(content: ai_reply)
+    post.reload
 
     stream_id =
       if post.user.present? # postにユーザーIDがある場合
@@ -17,11 +18,11 @@ class GenerateAiResponseJob < ApplicationJob
       end
 
     # Turbo Streamで返答を表示（broadcasting）
-    Turbo::StreamsChannel.broadcast_append_to(
+    Turbo::StreamsChannel.broadcast_replace_to(
       stream_id,
-      target: "chat_messages",
+      target: "loading-#{post.id}",
       partial: "chats/message",
-      locals: { message: { user: post.content, ai: ai_reply } }
+      locals: { message: post }
     )
   end
 end
