@@ -6,12 +6,12 @@ class ChatsController < ApplicationController
 
   def create
     if user_signed_in?
-      post = current_user.posts.create!(content: params[:content])
+      @post = current_user.posts.create!(content: params[:content])
     else
-      post = Post.create!(content: params[:content], session_id: session.id)
+      @post = Post.create!(content: params[:content], session_id: session.id)
     end
 
-    GenerateAiResponseJob.perform_later(post.id)
+    GenerateAiResponseJob.perform_later(@post.id)
 
     respond_to do |format|
       format.turbo_stream

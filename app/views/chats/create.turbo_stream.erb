@@ -1,0 +1,4 @@
+
+<%= turbo_stream.append "chat_messages" do %>
+    <%= render partial: "chats/message", locals: { message: @post } %>
+  <% end %>

@@ -1,7 +1,11 @@
-<div class="chat-item">
+<div id="loading-<%= message.id %>" class="chat-item">
   <div class="flex justify-center">
-    <div class=" tracking-wide text-left">
-      <p><%= message[:ai] %></p>
+    <div class="tracking-wide text-left">
+      <% if message.ai_response.present? %>
+        <p><%= message.ai_response.content %></p>
+      <% else %>
+        <p class="text-gray-500 animate-pulse">🤖 AIが考え中です…</p>
+      <% end %>
+    </div>
   </div>
-  </div>  
 </div>
