@@ -29,26 +29,26 @@
           </div>
         </div>
         <!-- 各種ボタン -->
-        <div class="flex justify-center">
+        <div class="flex flex-wrap justify-center items-cente">
           <!-- xシェアボタン-->
-          <div class="mx-10 my-2">
+          <div class="mx-4 my-2">
             <a href="https://twitter.com/intent/tweet?text=ポジティブを育てよう！&url=https%3A%2F%2Fjibun-love.com%2F&hashtags=じぶんLOVE,ポジティブ思考,自己肯定感"
             target="_blank"
             rel="noopener noreferrer"
-            class="my-x-share-button text-gray-600 hover:text-cyan-400"
+            class="my-x-share-button text-gray-600 hover:text-cyan-400 text-xs md:text-sm"
             >
             Xでシェア
             </a>
           </div>
           <!-- リセットボタン -->
-          <div class="mx-10 my-2 text-gray-600 hover:text-amber-400">
+          <div class="mx-4 my-3 text-gray-600 hover:text-amber-400 text-xs md:text-sm">
             <%= button_to '新しく書く', chat_reset_path, method: :delete %>
           </div>
-          <!-- 会話履歴 -->
-          <div class="mx-10 my-2 text-gray-600 hover:text-amber-400">
-            <%= link_to "会話履歴を表示", conversation_history_path,
+          <!-- 会話履歴 PC画面のみ表示-->
+          <div class="mx-4 my-2 text-gray-600 hover:text-pink-400 hidden md:block">
+            <%= link_to "会話履歴", conversation_history_path,
                         data: { turbo_stream: true, turbo_target: "conversation-history" },
-                        class: "btn btn-secondary" %>           
+                        class: "btn btn-secondary text-sm" %>           
           </div>
         </div>
       </div>
