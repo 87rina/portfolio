@@ -1,81 +1,70 @@
 <!-- ページネーション後、背景画像を全画面共有にする -->
-<div class="flex flex-col md:flex-row min-h-screen bg-hero-pattern bg-cover bg-top">
-  <!-- menu -->
-  <div class="order-3 md:order-1 w-full md:w-1/5 p-4 fixed bottom-0 left-0 z-10 bg-white md:static md:h-full">
+<div class="grid grid-cols-1 md:grid-cols-12 grid-rows-10 h-screen bg-hero-pattern bg-cover bg-top">
+  <!-- menu 画面左-->
+  <div class="col-span-12 md:col-span-2 row-span-10 p-4 fixed bottom-0 bg-white md:static md:h-full">
       <%= render 'menu' %>
   </div>
-
-  <!-- chat -->
-  <div class="order-2 md:order-2 w-full md:w-3/5 p-4 overflow-hidden">
-    <div class="mx-auto p-2">
-      <div class="flex justify-center">
-        <div class="w-full text-center ">
-          <h1 class="sm:text-sm md:text-xl lg:text-2xl mt-4 mb-6 text-gray-600">今日のいいところ</h1>
-          <!-- ユーザー入力フォーム -->
-          <%= form_with url: chats_path, method: :post, local: false do |f| %>
-            <div class="flex justify-center mb-4">
-              <div class="w-full max-w-md border-4 border-amber-400 rounded-md">
-                <%= f.text_area :content, placeholder: "ポジティブな言葉で書いてみましょう！", class: "w-full rounded-md text-center" %>
-              </div>
-            </div>
-        
-            <%= f.submit "さすが自分！",class: "w-200 hover:bg-amber-300 text-gray font-bold py-2 px-4 rounded-md shadow-md transition" %> 
-          <% end %>
-          
-          <div class="flex justify-center mt-4">
-            <div class="w-full max-w-md border-4 border-cyan-400 rounded-md p-4 bg-white">
+  <!-- chat 画面中央-->
+  <div class="col-span-12 row-span-7 row-start-2 md:col-span-4 md:col-start-5 md:row-span-10 p-4 overflow-hidden">
+    <div class="w-full text-center ">
+      <h1 class="sm:text-sm md:text-xl lg:text-2xl mt-4 mb-6 text-gray-600">今日のいいところ</h1>
+      <!-- ユーザー入力フォーム -->
+      <%= form_with url: chats_path, method: :post, local: false do |f| %>
+        <div class="flex justify-center mb-4">
+          <div class="w-full border-4 border-amber-400 rounded-md">
+            <%= f.text_area :content, placeholder: "ポジティブな言葉で書いてみましょう！", class: "w-full rounded-md text-center" %>
+          </div>
+        </div>
+        <!-- 投稿ボタン -->
+        <%= f.submit "さすが自分！",class: "w-200 hover:bg-amber-300 text-gray font-bold py-2 px-4 rounded-md shadow-md transition" %> 
+        <% end %>
+        <!-- AI返答フォーム -->
+        <div class="flex justify-center mt-4">
+          <div class="w-full border-4 border-cyan-400 rounded-md p-4 bg-white">
             <% stream_id = user_signed_in? ? "chat_user_#{current_user.id}" : "chat_guest_#{session.id}" %>
             <%= turbo_stream_from stream_id %>
-      
               <div id="chat_messages">
                 <%= render partial: "message", collection: @messages, as: :message %>
               </div>
-            </div>
           </div>
-          <div class="flex justify-center">
-            <!-- xシェアボタン　本リリース時、URL変更-->
-            <div class="mx-10 my-2">
-              <a href="https://twitter.com/intent/tweet?text=ポジティブを育てよう！&url=https%3A%2F%2Fjibun-love.com%2F&hashtags=じぶんLOVE,ポジティブ思考,自己肯定感"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="my-x-share-button text-gray-600 hover:text-cyan-400"
-              >
-              Xでシェア
-              </a>
-            </div>
-            <!-- リセットボタン -->
-            <div class="mx-10 my-2 text-gray-600 hover:text-amber-400">
-              <%= button_to '新しく書く', chat_reset_path, method: :delete %>
-            </div>
-            <!-- 会話履歴 -->
-            <div class="mx-10 my-2 text-gray-600 hover:text-amber-400">
-              <%= link_to "会話履歴を表示", conversation_history_path,
-                          data: { turbo_stream: true, turbo_target: "conversation-history" },
-                          class: "btn btn-secondary" %>           
-            </div>
+        </div>
+        <!-- 各種ボタン -->
+        <div class="flex justify-center">
+          <!-- xシェアボタン-->
+          <div class="mx-10 my-2">
+            <a href="https://twitter.com/intent/tweet?text=ポジティブを育てよう！&url=https%3A%2F%2Fjibun-love.com%2F&hashtags=じぶんLOVE,ポジティブ思考,自己肯定感"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="my-x-share-button text-gray-600 hover:text-cyan-400"
+            >
+            Xでシェア
+            </a>
+          </div>
+          <!-- リセットボタン -->
+          <div class="mx-10 my-2 text-gray-600 hover:text-amber-400">
+            <%= button_to '新しく書く', chat_reset_path, method: :delete %>
+          </div>
+          <!-- 会話履歴 -->
+          <div class="mx-10 my-2 text-gray-600 hover:text-amber-400">
+            <%= link_to "会話履歴を表示", conversation_history_path,
+                        data: { turbo_stream: true, turbo_target: "conversation-history" },
+                        class: "btn btn-secondary" %>           
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="order-1 md:order-3 w-full md:w-1/5 p-4">
-    <div class="h-full flex flex-col justify-between p-4 space-y-4">
-      <!-- 上部：リード文（1/4）-->
-      <div class="h-1/4">
-        <% if user_signed_in? %>
-          <%= render 'lead' %>
-        <% else %>
-          <%= render 'before_login_lead' %>
-        <% end %>
-      </div>
-
-      <!-- 下部：会話履歴（3/4）-->
-      <div class="h-3/4 overflow-y-auto">
-        <div id="conversation-history"></div>
-      </div>
+    <!-- 画面右 -->   
+    <div class="col-span-12 md:col-span-2 md:col-end-13 row-span-1 row-start-1 p-4 ">
+      <!-- 上部：リード文-->
+      <% if user_signed_in? %>
+        <%= render 'lead' %>
+      <% else %>
+        <%= render 'before_login_lead' %>
+      <% end %>
+    </div>
+    <!-- 下部：会話履歴-->
+    <div class="col-span-12 md:col-span-4 md:col-end-13 md:row-span-8  md:row-start-2 overflow-y-auto mx-4">
+      <div id="conversation-history"></div>
     </div>
   </div>
-  </div>
-  
 </div>
