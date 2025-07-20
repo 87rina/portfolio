@@ -9,7 +9,7 @@ class GenerateAiResponseJob < ApplicationJob
 
     post.create_ai_response!(content: ai_reply)
     post.reload
-    
+
     stream_id =
       if post.user.present? # postにユーザーIDがある場合
         "chat_user_#{post.user_id}"
