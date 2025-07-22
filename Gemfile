@@ -21,6 +21,8 @@ gem "jbuilder"
 # 追加のGemファイル
 # CSS
 gem "tailwindcss-rails", "~> 3.3.1"
+# ページネーション
+gem "kaminari"
 # 認証機能
 gem "devise"
 # チャット用

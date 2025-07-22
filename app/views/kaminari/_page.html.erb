@@ -1,0 +1,6 @@
+<!-- 「1」「2」「3」などの各ページ -->
+<% if page.current? %>
+  <span class=" text-cyan-500 px-4 py-3"><%= page %></span>
+<% else %>
+  <%= link_to page, url, remote: remote, rel: page.rel, class: "px-4 text-gray-400 hover:text-gray-700 font-light" %>
+<% end %>
