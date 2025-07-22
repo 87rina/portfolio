@@ -1,0 +1,16 @@
+<!-- メインとなるテンプレートファイル -->
+<div class="flex justify-center items-center w-full my-2">
+<%= paginator.render do -%>
+    <nav class="flex items-center justify-between" role="navigation" aria-label="pager">
+      <%= prev_page_tag unless current_page.first? %>
+      <% each_page do |page| -%>
+        <% if page.display_tag? -%>
+          <%= page_tag page %>
+        <% end -%>
+      <% end -%>
+      <% unless current_page.out_of_range? %>
+        <%= next_page_tag unless current_page.last? %>
+      <% end %>
+    </nav>
+  <% end -%>
+  </div>
