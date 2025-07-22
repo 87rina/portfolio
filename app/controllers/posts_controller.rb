@@ -8,6 +8,11 @@ class PostsController < ApplicationController
     @consecutive_days = calculate_consecutive_days(recorded_dates)
   end
 
+  def show
+    @post = Post.find(params[:id])
+    @ai_response = @post.ai_response
+  end
+
   private
 
   def calculate_consecutive_days(dates)
