@@ -29,7 +29,7 @@ gem "devise"
 gem "ruby-openai", "~> 8.1"
 gem "sidekiq", "~> 7.2"
 # Radis用
-gem "redis", "~> 4.8"
+gem "redis", "~> 5.4"
 # 翻訳
 gem "devise-i18n"
 gem "rails-i18n", "~> 7.0.0"
