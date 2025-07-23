@@ -27,7 +27,7 @@ gem "kaminari"
 gem "devise"
 # チャット用
 gem "ruby-openai", "~> 8.1"
-gem "sidekiq", "~> 7.2"
+gem "sidekiq", "~> 8.0"
 # Radis用
 gem "redis", "~> 4.8"
 # 翻訳
