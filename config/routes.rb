@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   get "conversation_history", to: "conversations#show_history"
 
   resources :chats, only: [ :index, :create ]
-  resources :posts, only: [ :index, :show ]
+  resources :posts, only: [ :index, :show, :destroy ]
 end
