@@ -20,7 +20,7 @@ gem "cssbundling-rails"
 gem "jbuilder"
 # 追加のGemファイル
 # CSS
-gem "tailwindcss-rails", "~> 3.3.1"
+gem "tailwindcss-rails", "~> 4.3.0"
 # ページネーション
 gem "kaminari"
 # 認証機能
