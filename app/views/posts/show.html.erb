@@ -10,7 +10,14 @@
   </div>
   <!-- 投稿詳細 -->
   <div class="flex justify-center mt-8">
-    <h2 class="w-full max-w-md text-lg text-gray-700 border-b  border-gray-500 pb-2 mb-2"><%= l(@post.created_at, format: :short) %></h2>
+    <h2 class="w-full max-w-md text-lg text-gray-700 border-b border-gray-500 mb-2"><%= l(@post.created_at, format: :short) %></h2>
+  
+    <%= link_to post_path(@post), id: "button-delete-#{@post.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+      <div class="inline-block border-b border-gray-500">
+        <%= inline_svg("trash", class: "w-5 h-5 text-gray-800 hover:text-amber-500 mx-1 my-1") %>
+      </div>
+    <% end %>
+  </div>
   </div>
   <div class="flex justify-center mb-4">
     <div class="w-full  max-w-md text-center border-4 border-amber-400 rounded-md m-5 p-3">

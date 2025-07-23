@@ -1,0 +1,42 @@
+ja:
+  defaults:
+    create: 作成
+    post: 記録
+    edit: 編集
+    show: 詳細
+    delete: 削除
+    delete_confirm: 削除しますか？
+    password_reset: パスワードリセット
+    unspecified: 指定なし
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新出来ませんでした"
+      deleted: "%{item}を削除しました"
+      require_login: ログインしてください
+      not_authorized: 権限がありません
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  posts:
+    index:
+      title: ポジティブ一覧
+    show:
+      title: ポジティブ詳細
+  header:
+    login: ログイン
+    logout: ログアウト
+  pagination:
+      first: "最初"
+      previous: "前へ"
+      next: "次へ"
+      last: "最後"
+  time:
+    formats:
+      short: "%Y/%m/%d %H:%M"
