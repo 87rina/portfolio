@@ -1,11 +1,11 @@
 <!-- ページネーション後、背景画像を全画面共有にする -->
 <div class="grid grid-cols-1 md:grid-cols-12 grid-rows-10 h-screen bg-hero-pattern bg-cover bg-top">
   <!-- menu 画面左-->
-  <div class="col-span-12 md:col-span-2 row-span-10 p-4 fixed bottom-0 bg-white md:static md:h-full">
+  <div class="col-span-1 md:col-span-2 row-span-10 p-4 fixed bottom-0 bg-white md:static md:h-full">
       <%= render 'menu' %>
   </div>
   <!-- chat 画面中央-->
-  <div class="col-span-12 row-span-7 row-start-2 md:col-span-4 md:col-start-5 md:row-span-10 p-4 overflow-hidden">
+  <div class="col-span-1 row-span-7 row-start-2 md:col-span-4 md:col-start-5 md:row-span-10 p-4 overflow-hidden">
     <div class="w-full text-center ">
       <h1 class="sm:text-sm md:text-xl lg:text-2xl mt-4 mb-6 text-gray-600">今日のいいところ</h1>
       <!-- ユーザー入力フォーム -->
@@ -54,7 +54,7 @@
       </div>
     </div>
     <!-- 画面右 -->   
-    <div class="col-span-12 md:col-span-2 md:col-end-13 row-span-1 row-start-1 p-4 ">
+    <div class="col-span-1 md:col-span-2 md:col-end-13 row-span-1 row-start-1 p-4 ">
       <!-- 上部：リード文-->
       <% if user_signed_in? %>
         <%= render 'lead' %>
