@@ -5,4 +5,3 @@ class Character < ApplicationRecord
   validates :system_prompt, presence: true
   validates :image_url, presence: true
 end
-  
