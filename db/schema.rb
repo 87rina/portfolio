@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_25_031346) do
     t.index ["post_id"], name: "index_ai_responses_on_post_id"
   end
 
-  create_table "caracters", force: :cascade do |t|
+  create_table "characters", force: :cascade do |t|
     t.string "name"
     t.text "system_prompt"
     t.string "image_url"
