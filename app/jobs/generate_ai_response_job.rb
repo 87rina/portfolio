@@ -5,6 +5,13 @@ class GenerateAiResponseJob < ApplicationJob
     post = Post.find(post_id)
     user_text = post.content
 
+    character =
+    if post.user&.character.present?
+      post.user.character
+    else
+      Character.find_by!(name: "デフォルト")
+    end
+
     ai_reply = OpenaiClient.new.generate_response(user_text)
 
     post.create_ai_response!(content: ai_reply)
