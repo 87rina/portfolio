@@ -7,3 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'yaml'
+
+characters = YAML.load_file(Rails.root.join("db/seed_data/characters.yml"))
+
+characters.each do |char|
+  Character.find_or_create_by!(name: char["name"]) do |c|
+    c.system_prompt = char["system_prompt"]
+    c.image_url = char["image_url"]
+  end
+end
