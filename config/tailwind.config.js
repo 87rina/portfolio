@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Yusei Magic"', 'sans-serif'],
+        sans: ["Kiwi Maru", "serif"], 
       },
       backgroundImage: {
         'hero-pattern': "url('/assets/background.jpg')", 
