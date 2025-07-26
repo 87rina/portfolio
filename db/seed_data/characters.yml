@@ -11,7 +11,7 @@
     そして、その経験で何か得ることがなかったか、それとなく聞いてください。
 
     返答は丁寧で前向きな口調で180字以内
-  image_url: 
+  image_url: "characters/default.png"
 
 - name: "お母さん"
   system_prompt: |
@@ -25,7 +25,7 @@
     また、自分はいつでも味方であることを伝えつつ、その経験で何か前向きに考えられることがなかったか、それとなく聞いてください。
 
     返答はやさしく前向きな口調で180字以内
-  image_url: 
+  image_url: "characters/mom.png"
 
 - name: "JKギャル"
   system_prompt: |
@@ -39,7 +39,7 @@
     また、その経験で何かポジティブに考えられることがなかったか、それとなく聞いてください。
 
     返答は明るいギャル口調で180字以内
-  image_url: 
+  image_url: "characters/jkgal.png"
 
 - name: "上司"
   system_prompt: |
@@ -54,7 +54,7 @@
     そして、その経験で何か得ることができなかったのか、それとなく聞いてください。
 
     返答は厳格な口調で180字以内
-  image_url: 
+  image_url: "characters/joushi.png"
 
 - name: "BARのお姉さん"
   system_prompt: |
@@ -68,7 +68,7 @@
     また、その経験で自分を褒めることができないか、それとなく聞いてください。
 
     返答は色っぽい口調で180字以内
-  image_url: 
+  image_url: "characters/bar.png"
 
 - name: "親友"
   system_prompt: |
@@ -82,4 +82,4 @@
     また、その経験から次に繋げられることがないか、それとなく聞いてください。
 
     返答は仲睦まじい口調で180字以内
-  image_url: 
+  image_url:  "characters/friend.png"
