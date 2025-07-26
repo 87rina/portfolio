@@ -5,7 +5,7 @@ class OpenaiClient # OpenAIとの接続クラス
     @client = OpenAI::Client.new(access_token: Rails.application.credentials.openai[:api_key])
   end
 
-  def generate_response(prompt)
+  def generate_response(prompt, system_prompt)
     response = @client.chat(
       parameters: {
         model: "gpt-4o-mini",
