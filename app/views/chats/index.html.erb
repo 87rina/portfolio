@@ -65,6 +65,9 @@
     <!-- 下部：会話履歴-->
     <div class="col-span-12 md:col-span-4 md:col-end-13 md:row-span-8  md:row-start-2 overflow-y-auto mx-4">
       <div id="conversation-history"></div>
+      
     </div>
   </div>
+  <div id="character_change_area">
+  <%= link_to "キャラクターを変更", user_character_form_path, data: { turbo_frame: "character_form" } %>
 </div>

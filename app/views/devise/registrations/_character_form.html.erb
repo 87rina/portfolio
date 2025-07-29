@@ -1,0 +1,24 @@
+
+    <turbo-frame id="character_form" src="/users/character_form">
+    </turbo-frame>
+<div class="character_form" id="character_form">
+  <div class="modal-content">
+    <button class="close-button" data-action="click->character-selector#closeModal">×</button>
+    <h3>好きなキャラクターに褒めてもらおう！</h3>
+
+    <div class="character-grid">
+      <% @available_characters.each do |character| %>
+        <div class="character-item" data-action="click->character-selector#select" data-character-id="<%= character.id %>">
+          <% if character.image_url.present? %>
+            <%= image_tag character.image_url, size: "100x100" %>
+          <% else %>
+            <p>画像なし</p>
+          <% end %>
+          <p><%= character.name %></p>
+        </div>
+      <% end %>
+    </div>
+    
+  
+  </div>
+</div>

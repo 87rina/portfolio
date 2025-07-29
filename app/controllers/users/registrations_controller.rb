@@ -3,6 +3,13 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [ :create ]
   # before_action :configure_account_update_params, only: [:update]
+    # 非同期でキャラクター変更フォームを返すアクション
+    def character_form
+      @available_characters = Character.all # 全てのキャラクターを取得
+      @current_character = current_user.character # 現在設定されているキャラクター
+  
+      render partial: "devise/registrations/character_form", locals: { user: current_user }
+    end
 
   # GET /resource/sign_up
   # def new
