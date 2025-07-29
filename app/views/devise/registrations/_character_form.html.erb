@@ -20,8 +20,8 @@
     </div>
     <div class="current-character m-4 pt-4 border-t-4 grid grid-cols-2">
       <div class="place-items-center">
-      <p class="m-2">現在のキャラクター</p> 
-      <p class="m-2"><%= current_user.character&.name || "デフォルト" %></p>
+        <p class="m-2">現在のキャラクター</p> 
+        <p class="m-2"><%= current_user.character&.name || "デフォルト" %></p>
       </div>
       <div class="place-items-center">
         <%= image_tag current_user.character&.image_url, class: "rounded-full border-2 border-gray-300 size-20" %>
