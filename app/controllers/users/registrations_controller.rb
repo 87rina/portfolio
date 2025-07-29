@@ -3,14 +3,26 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [ :create ]
   # before_action :configure_account_update_params, only: [:update]
-    # 非同期でキャラクター変更フォームを返すアクション
+    # 非同期でキャラクター変更フォームを返す
     def character_form
       @available_characters = Character.all # 全てのキャラクターを取得
-      @current_character = current_user.character # 現在設定されているキャラクター
-  
-      render partial: "devise/registrations/character_form", locals: { user: current_user }
-    end
 
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to root_path }
+      end
+    end
+  
+    # キャラクター更新
+    def update_character
+      current_user.update(character_params)
+      @available_characters = Character.all
+  
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to root_path }
+      end
+    end
   # GET /resource/sign_up
   # def new
   #   super
@@ -67,4 +79,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private
+
+  def character_params
+    params.require(:user).permit(:character_id)
+  end
 end

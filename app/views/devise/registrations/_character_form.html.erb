@@ -1,24 +1,25 @@
-
-    <turbo-frame id="character_form" src="/users/character_form">
-    </turbo-frame>
-<div class="character_form" id="character_form">
+<div class="character-form" data-controller="character-form">
   <div class="modal-content">
-    <button class="close-button" data-action="click->character-selector#closeModal">×</button>
+    <div class="flex justify-end p-2">
+      <button type="button" data-action="character-form#close" class=" text-gray-500 hover:text-gray-800">
+      ✕
+      </button>
+    </div>
     <h3>好きなキャラクターに褒めてもらおう！</h3>
 
     <div class="character-grid">
       <% @available_characters.each do |character| %>
-        <div class="character-item" data-action="click->character-selector#select" data-character-id="<%= character.id %>">
-          <% if character.image_url.present? %>
-            <%= image_tag character.image_url, size: "100x100" %>
-          <% else %>
-            <p>画像なし</p>
-          <% end %>
+        <%= button_to update_character_path(user: { character_id: character.id }),
+                      method: :patch,
+                      form: { data: { turbo_stream: true } },
+                      class: "character-option" do %>
+          <%= image_tag character.image_url, alt: character.name %>
           <p><%= character.name %></p>
-        </div>
+        <% end %>
       <% end %>
     </div>
-    
-  
+    <div class="current-character">
+      現在のキャラクター: <%= current_user.character&.name || "デフォルト" %>
+    </div>  
   </div>
 </div>
