@@ -1,0 +1,7 @@
+<div class="character-display">
+  <% if user.character.present? %>
+    <%= image_tag user.character.image_url, alt: user.character.name, size: "50x50"%>
+  <% else %>
+    <p>未設定</p>
+  <% end %>
+</div>

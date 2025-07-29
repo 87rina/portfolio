@@ -15,12 +15,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
     # キャラクター更新
     def update_character
-      current_user.update(character_params)
       @available_characters = Character.all
-  
+      if current_user.update(character_params)
+        flash.now[:notice] = "あなたのキャラクターを#{current_user.character.name}に変更しました"
+      end
+    
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to root_path }
+        format.html { redirect_to root_path, notice: flash[:notice] }
       end
     end
   # GET /resource/sign_up

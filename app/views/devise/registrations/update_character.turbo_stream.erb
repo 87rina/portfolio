@@ -1,7 +1,11 @@
 <%= turbo_stream.replace "character_area" do %>
-    <%= render "users/character_display", user: current_user %>
+    <%= render "devise/character_display", user: current_user %>
   <% end %>
   
   <%= turbo_stream.replace "character_form_container" do %>
     <!-- 空にして閉じる -->
+  <% end %>
+
+  <%= turbo_stream.replace "flash" do %>
+  <%= render "layouts/flash" %>
   <% end %>
