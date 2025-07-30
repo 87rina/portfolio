@@ -29,8 +29,9 @@
               <div id="chat_messages">
                 <%= render partial: "message", collection: @messages, as: :message %>
               </div>
+              <!-- キャラクターの表示 -->
               <div id="character_area">
-                <%= render "devise/character_display", user: current_user %>
+                  <%= render 'devise/character_display', user: current_user %>
               </div>
           </div>
         </div>

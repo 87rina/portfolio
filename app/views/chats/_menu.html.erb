@@ -5,10 +5,8 @@
     icon: "calendar",
     logged_in_path: posts_path,
     logged_in_options: {},
-    guest_path: how_character_selection_path,
-    guest_options: {
-      data: { turbo_stream: true, turbo_action: "append", turbo_target: "body" }
-    }
+    guest_path: "#",
+    guest_options: {}
   },
   {
     label: "キャラクター変更",
@@ -16,8 +14,10 @@
     icon: "character",
     logged_in_path: "#",
     logged_in_options: {},
-    guest_path: "#",
-    guest_options: {}
+    guest_path: how_character_selection_path,
+    guest_options: {
+      data: { turbo_stream: true, turbo_action: "append", turbo_target: "body" }
+    }
   },
   {
     label: "書き方に困ったら",
@@ -59,7 +59,9 @@
     <% options = item[:guest_options] || {} %>
   <% end %>
 
-    <%= link_to path, class: "#{item[:bg]} flex flex-col justify-center items-center w-full h-full p-2" do %>
+  <% merged_class = "#{item[:bg]} flex flex-col justify-center items-center w-full h-full p-2 #{options[:class]}" %>
+
+    <%= link_to path, options.merge(class: merged_class) do %>
       <%= inline_svg(item[:icon], class: "w-6 h-6 text-gray-700 hover:text-amber-600 my-2") %>
       <p class="text-[8px] text-gray-600"><%= item[:label] %></p>
     <% end %>
@@ -71,14 +73,16 @@
 <div class="hidden md:grid md:grid-rows-10 h-full">
   <% items.each do |item| %>
     <% if user_signed_in? %>
-    <% path = item[:logged_in_path] %>
-    <% options = item[:logged_in_options] || {} %>
-  <% else %>
-    <% path = item[:guest_path] %>
-    <% options = item[:guest_options] || {} %>
-  <% end %>
+      <% path = item[:logged_in_path] %>
+      <% options = item[:logged_in_options] || {} %>
+    <% else %>
+      <% path = item[:guest_path] %>
+      <% options = item[:guest_options] || {} %>
+    <% end %>
 
-    <%= link_to path, class: "#{item[:bg]} flex-1 flex items-end mb-1 drop-shadow-lg row-span-2" do %>
+    <% merged_class = "#{item[:bg]} flex-1 flex items-end mb-1 drop-shadow-lg row-span-2 #{options[:class]}" %>
+
+    <%= link_to path, options.merge(class: merged_class) do %>
       <h3 class="text-base lg:text-lg font-bold text-gray-700 hover:text-amber-600"><%= item[:label] %></h3>
       <%= inline_svg(item[:icon], class: "w-8 h-8 text-gray-700 ml-auto") %>
     <% end %>
