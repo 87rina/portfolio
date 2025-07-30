@@ -26,6 +26,9 @@
               <div id="chat_messages">
                 <%= render partial: "message", collection: @messages, as: :message %>
               </div>
+              <div id="character_area">
+                <%= render "devise/character_display", user: current_user %>
+              </div>
           </div>
         </div>
         <!-- 各種ボタン -->
@@ -55,16 +58,22 @@
     </div>
     <!-- 画面右 -->   
     <div class="col-span-1 md:col-span-2 md:col-end-13 row-span-1 row-start-1 p-4 ">
-      <!-- 上部：リード文-->
+      <!-- 上部：リード文 -->
       <% if user_signed_in? %>
         <%= render 'lead' %>
       <% else %>
         <%= render 'before_login_lead' %>
       <% end %>
     </div>
-    <!-- 下部：会話履歴-->
+    <!-- 下部：会話履歴 -->
     <div class="col-span-12 md:col-span-4 md:col-end-13 md:row-span-8  md:row-start-2 overflow-y-auto mx-4">
       <div id="conversation-history"></div>
     </div>
+    <!-- 下部：キャラクター変更画面 -->
+    <div class="col-span-12 md:col-span-4 md:col-end-13 md:row-span-8  md:row-start-2 h-screen mx-4">
+      <div id="character_form_container"></div>
+    </div>
   </div>
+  <div id="character_change_area">
+  <%= link_to "キャラクターを変更", character_form_path, data: { turbo_stream: true } %>
 </div>

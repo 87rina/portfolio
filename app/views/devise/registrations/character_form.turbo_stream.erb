@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "character_form_container" do %>
+  <div class="character-form">
+    <%= render "devise/registrations/character_form", user: current_user %>
+  </div>
+<% end %>

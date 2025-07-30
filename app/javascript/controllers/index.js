@@ -9,3 +9,6 @@ application.register("conversation", ConversationController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import CharacterFormController from "./character_form_controller"
+Stimulus.register("character-form", CharacterFormController)

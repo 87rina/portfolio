@@ -12,7 +12,7 @@ class GenerateAiResponseJob < ApplicationJob
       Character.find_by!(name: "デフォルト")
     end
 
-    ai_reply = OpenaiClient.new.generate_response(user_text)
+    ai_reply = OpenaiClient.new.generate_response(user_text, character.system_prompt)
 
     post.create_ai_response!(content: ai_reply)
     post.reload
