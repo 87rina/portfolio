@@ -4,42 +4,61 @@
     bg: "bg-amber-200",
     icon: "calendar",
     logged_in_path: posts_path,
-    guest_path: "#"
+    logged_in_options: {},
+    guest_path: how_character_selection_path,
+    guest_options: {
+      data: { turbo_stream: true, turbo_action: "append", turbo_target: "body" }
+    }
   },
   {
     label: "キャラクター変更",
     bg: "bg-amber-100",
     icon: "character",
     logged_in_path: "#",
-    guest_path: "#"
+    logged_in_options: {},
+    guest_path: "#",
+    guest_options: {}
   },
   {
     label: "書き方に困ったら",
     bg: "bg-amber-50",
     icon: "light",
    logged_in_path: "#",
-    guest_path: "#"
+   logged_in_options: {},
+   guest_path: "#",
+   guest_options: {}
   },
   {
     label: "アプリの使い方",
     bg: "bg-cyan-50",
     icon: "qestion",
     logged_in_path: "#",
-    guest_path: "#"
+    logged_in_options: {},
+    guest_path: "#",
+    guest_options: {}
   },
   {
     label: "プロフィール設定",
     bg: "bg-cyan-200",
     icon: "setting",
     logged_in_path: "#",
-    guest_path: "#"
+    logged_in_options: {},
+    guest_path: "#",
+    guest_options: {}
   }
 ] %>
 
 <!-- スマホ画面 -->
 <div class="block md:hidden grid grid-cols-5 w-full">
   <% items.each do |item| %>
-    <% path = user_signed_in? ? item[:logged_in_path] : item[:guest_path] %>
+    <% if user_signed_in? %>
+    <% path = item[:logged_in_path] %>
+    <% options = item[:logged_in_options] || {} %>
+  <% else %>
+    <% path = item[:guest_path] %>
+    <% options = item[:guest_options] || {} %>
+  <% end %>
+
     <%= link_to path, class: "#{item[:bg]} flex flex-col justify-center items-center w-full h-full p-2" do %>
       <%= inline_svg(item[:icon], class: "w-6 h-6 text-gray-700 hover:text-amber-600 my-2") %>
       <p class="text-[8px] text-gray-600"><%= item[:label] %></p>
@@ -51,7 +70,14 @@
 <!-- PC画面 -->
 <div class="hidden md:grid md:grid-rows-10 h-full">
   <% items.each do |item| %>
-    <% path = user_signed_in? ? item[:logged_in_path] : item[:guest_path] %>
+    <% if user_signed_in? %>
+    <% path = item[:logged_in_path] %>
+    <% options = item[:logged_in_options] || {} %>
+  <% else %>
+    <% path = item[:guest_path] %>
+    <% options = item[:guest_options] || {} %>
+  <% end %>
+
     <%= link_to path, class: "#{item[:bg]} flex-1 flex items-end mb-1 drop-shadow-lg row-span-2" do %>
       <h3 class="text-base lg:text-lg font-bold text-gray-700 hover:text-amber-600"><%= item[:label] %></h3>
       <%= inline_svg(item[:icon], class: "w-8 h-8 text-gray-700 ml-auto") %>
