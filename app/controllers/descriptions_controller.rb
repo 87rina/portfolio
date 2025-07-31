@@ -1,5 +1,5 @@
 class DescriptionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:how_character_selection]
+  skip_before_action :authenticate_user!, only: [ :how_character_selection ]
   # キャラクター変更機能の説明
   def how_character_selection
     respond_to do |format|
