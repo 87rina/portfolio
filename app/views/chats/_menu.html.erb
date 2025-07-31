@@ -25,8 +25,10 @@
     icon: "light",
    logged_in_path: "#",
    logged_in_options: {},
-   guest_path: "#",
-   guest_options: {}
+   guest_path: how_to_write_path,
+   guest_options: {
+      data: { turbo_stream: true, turbo_action: "append", turbo_target: "body" }
+    }
   },
   {
     label: "アプリの使い方",
