@@ -2,6 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [ :create ]
+  before_action :authenticate_user!, only: [ :character_form, :update_character ]
   # 非同期でキャラクター変更フォームを返す
   def character_form
     @available_characters = Character.all # 全てのキャラクターを取得

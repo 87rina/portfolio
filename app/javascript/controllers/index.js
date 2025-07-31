@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import CharacterFormController from "./character_form_controller"
 Stimulus.register("character-form", CharacterFormController)
+
+import CharacterSelectionController from "./character_selection_controller"
+Stimulus.register("character-selection", CharacterSelectionController)

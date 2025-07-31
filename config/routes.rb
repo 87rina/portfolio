@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   root "chats#index"
   delete "/chat_reset", to: "posts#reset_chat"
   get "conversation_history", to: "conversations#show_history"
-
+  # 各種説明文
+  get "how_character_selection", to: "descriptions#how_character_selection", as: :how_character_selection
   resources :chats, only: [ :index, :create ]
   resources :posts, only: [ :index, :show, :destroy ]
 end
