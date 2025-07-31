@@ -4,14 +4,8 @@
 
 import { application } from "./application"
 
-import ConversationController from "./conversation_controller"
-application.register("conversation", ConversationController)
-
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import CharacterFormController from "./character_form_controller"
-Stimulus.register("character-form", CharacterFormController)
-
-import CharacterSelectionController from "./character_selection_controller"
-Stimulus.register("character-selection", CharacterSelectionController)
+import ClosableController from "./closable_controller"
+Stimulus.register("closable", ClosableController)
