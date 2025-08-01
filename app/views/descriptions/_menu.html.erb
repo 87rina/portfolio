@@ -1,0 +1,61 @@
+<% items = [
+  {
+    image: "how_to_use/menu01.png",
+    image_md: "how_to_use/menu1.png",
+    description: "カレンダー画面に遷移して、自分の記録の状況や記録の一覧を見ることができます。<br>
+                  過去の記録を見返して、ポジティブの成長を感じましょう！"
+  },
+  {
+    image: "how_to_use/menu02.png",
+    image_md: "how_to_use/menu2.png",
+    description: "応援メッセージをくれるキャラクターの変更ができます！<br>
+                  その日の気分や好みのキャラクターを見つけて、一緒にポジティブを育てていきましょう！"
+  },
+  {
+    image: "how_to_use/menu03.png",
+    image_md: "how_to_use/menu3.png",
+    description: "自分の良いところがわからない。何を書いたらわからない時は、ここを一読してみてください。<br>
+                  ポジティブな言葉でなんでも記録しちゃいましょう！"
+  },
+  {
+    image: "how_to_use/menu04.png",
+    image_md: "how_to_use/menu4.png",
+    description: "現在のページです。<br>
+                  操作方法がわからなくなったら、いつでも見返してみてください！"
+  },
+  {
+    image: "how_to_use/menu05.png",
+    image_md: "how_to_use/menu5.png",
+    description: "ユーザー情報や記録状況を確認＆編集できます。<br>
+                  LINE通知もここから設定できます！"
+  },
+  {
+    image: "how_to_use/button2.png",
+    image_md: "how_to_use/button2.png",
+    description: "<　Xシェアボタン　><br>
+                  今日のポジティブ発言をSNSに投稿しましょう！<br>
+                  投稿できるようになったら、自己肯定感が上がっている証です！"
+  },
+  {
+    image: "how_to_use/button3.png",
+    image_md: "how_to_use/button3.png",
+    description: "<　リセットボタン　><br>
+                  一度発言したポジティブは画面上に残るので、しばらく眺めて自分自身を認めてあげましょう！<br>
+                  新たにポジティブを記録する場合は、一度リセットボタンを押してください。"
+  },
+  {
+    image: "how_to_use/button1.png",
+    image_md: "how_to_use/button1.png",
+    description: "<　会話履歴ボタン　><br>
+                  キャラクターとの会話履歴を表示します。<br>
+                  ログアウト後または１日おきに履歴はリセットされます"
+  }
+] %>
+
+<% items.each do |item| %>
+  <div class="flex items-center border-b py-2">
+    <%= image_tag item[:image], size: "50x50", class: "block md:hidden" %>
+    <%= image_tag item[:image_md], class: "hidden md:block w-full h-auto", style: "max-width: 150px" %>
+    <p class="ml-4 text-xs md:text-base"><%= raw item[:description] %></p>
+  </div>
+<% end %>

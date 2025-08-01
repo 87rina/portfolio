@@ -1,4 +1,4 @@
-<div class="character-display place-items-center">
+<div class="character-display place-items-end">
   <% if defined?(user) && user.present? && user.character.present? %>
     <%= image_tag user.character.image_url, alt: user.character.name, size: "50x50"%>
   <% else %>

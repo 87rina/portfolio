@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   # 各種説明文
   get "how_character_selection", to: "descriptions#how_character_selection", as: :how_character_selection
   get "how_to_write", to: "descriptions#how_to_write", as: :how_to_write
+  get "how_to_use", to: "descriptions#how_to_use", as: :how_to_use
   resources :chats, only: [ :index, :create ]
   resources :posts, only: [ :index, :show, :destroy ]
 end
