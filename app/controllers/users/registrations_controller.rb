@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # 非同期でキャラクター変更フォームを返す
   def character_form
     @available_characters = Character.all
-  
+
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.update("character-form-container", partial: "devise/registrations/character_form", locals: { available_characters: @available_characters }
