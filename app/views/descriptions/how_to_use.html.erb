@@ -1,0 +1,65 @@
+<div class="m-4">
+  <!-- ページトップ -->
+  <div class="grid grid-cols-1 md:grid-cols-5 w-full justify-center p-4 mb-10">
+    <div class="row-start-2 md:col-span-1 md:row-start-1">
+      <div class="flex justify-center md:flex-col md:text-left">
+        <div class="text-gray-700 mx-2">
+          <%= link_to root_path, class: "flex text-sm lg:text-base group" do %>
+            <%= inline_svg("pencil", class: "w-5 h-5 text-gray-800 mx-1 md:my-1 group-hover:text-cyan-500") %>
+            <span class="group-hover:text-cyan-500"><%= "ポジティブを書く" %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row-span-1 md:col-span-3">
+      <h1 class="text-2xl md:text-3xl lg:text-4xl text-center">アプリの使い方</h1>
+    </div>  
+  </div>
+
+  <!-- 使い方 -->
+  <div class="w-full md:max-w-5xl mx-auto">
+    <div class="m-6">
+      <h2 class="text-2xl md:text-3xl text-center m-4">使い方はたったの2STEP！</h2>
+      <div class="md:flex">
+        <div class="m-4 text-sm md:text-base">
+          <p>
+          <span class="text-lg">STEP1</span><br>
+            <span class="inline-block border-2 border-amber-400 rounded w-10 h-5 md:w-12 md:h-6 align-middle"></span>
+            内に、今日の良かったことを記入しましょう！<br>
+            <br><br>
+            <span class="text-lg">STEP2</span><br>
+            <span class="inline-block bg-yellow-400 text-xs md:text-sm px-3 py-1 rounded-lg font-bold">
+            さすが自分！
+            </span>
+            をクリックすると「今日の良いこと」が記録されます！<br>
+            <br><br>
+            mission complete!<br>
+            <span class="inline-block border-2 border-cyan-400 rounded w-10 h-5 md:w-12 md:h-6 align-middle"></span>
+            内に、キャラクターからの応援メッセージが届きます！<br>
+           <br>
+          </p>
+        </div>
+        <%= video_tag "how_to_use.mp4",
+          controls: false,
+          autoplay: true,
+          muted: true,
+          loop: true,
+          playsinline: true,
+          class: "mx-auto w-full max-w-sm" %>
+      </div>
+    </div>
+
+    <!-- 各メニュー/ボタン説明 -->
+    <div class="m-6">
+      <h2 class="text-2xl md:text-3xl text-center pb-4">各メニュー/ボタンについて</h2>
+      <div class="m-4">
+         <%= render 'menu' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center m-10">
+      <%= button_to '「今日のいいところ」を記録しましょう！', root_path, method: :get, form_class: "bg-pink-200 hover:bg-pink-400 font-bold py-2 px-4 rounded-full text-sm md:text-lg" %>
+  </div>
+</div>
+

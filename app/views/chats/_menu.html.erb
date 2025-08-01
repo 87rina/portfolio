@@ -5,8 +5,10 @@
     icon: "calendar",
     logged_in_path: posts_path,
     logged_in_options: {},
-    guest_path: "#",
-    guest_options: {}
+    guest_path: calendar_description_path,
+    guest_options: {
+      data: { turbo_stream: true, turbo_action: "append", turbo_target: "body" }
+    }
   },
   {
     label: "キャラクター変更",
@@ -25,16 +27,18 @@
     icon: "light",
    logged_in_path: "#",
    logged_in_options: {},
-   guest_path: "#",
-   guest_options: {}
+   guest_path: how_to_write_path,
+   guest_options: {
+      data: { turbo_stream: true, turbo_action: "append", turbo_target: "body" }
+    }
   },
   {
     label: "アプリの使い方",
     bg: "bg-cyan-50",
     icon: "qestion",
-    logged_in_path: "#",
+    logged_in_path: how_to_use_path,
     logged_in_options: {},
-    guest_path: "#",
+    guest_path: how_to_use_path,
     guest_options: {}
   },
   {
@@ -43,8 +47,10 @@
     icon: "setting",
     logged_in_path: "#",
     logged_in_options: {},
-    guest_path: "#",
-    guest_options: {}
+    guest_path: profile_setting_path,
+    guest_options: {
+      data: { turbo_stream: true, turbo_action: "append", turbo_target: "body" }
+    }
   }
 ] %>
 

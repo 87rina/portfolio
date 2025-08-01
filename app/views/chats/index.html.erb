@@ -5,8 +5,12 @@
     <%= render 'menu' %>
   </div>
   <!-- 説明画面 -->
+  <!-- カレンダー説明 -->
+  <div id="calendar-description" class="md:col-start-3 md:col-span-2 md:row-start-1 md:row-span-2 w-full"></div>
   <!-- キャラクター変更 -->
   <div id="character-selection" class="md:col-start-3 md:col-span-2 md:row-start-3 md:row-span-2 w-full"></div>
+  <!-- プロフィール設定 -->
+  <div id="profile-setting" class="md:col-start-3 md:col-span-2 md:row-start-8 md:row-span-2 w-full md:pt-10"></div>
 
   <!-- chat 画面中央-->
   <div class="col-span-1 row-span-7 row-start-2 md:col-span-4 md:col-start-5 md:row-span-10 p-4 overflow-hidden">
@@ -20,7 +24,7 @@
           </div>
         </div>
         <!-- 投稿ボタン -->
-        <%= f.submit "さすが自分！",class: "w-200 hover:bg-amber-300 text-gray font-bold py-2 px-4 rounded-md shadow-md transition" %> 
+        <%= f.submit "さすが自分！", class: "w-200 hover:bg-amber-300 text-gray font-bold py-2 px-4 rounded-md shadow-md transition" %> 
         <% end %>
         <!-- AI返答フォーム -->
         <div class="flex justify-center mt-4">
@@ -79,6 +83,8 @@
     <div class="col-span-12 md:col-span-4 md:col-end-13 md:row-span-8  md:row-start-2 h-screen mx-4">
       <div id="character_form_container"></div>
     </div>
+    <!-- 下部：「書き方に困ったら」-->
+    <div id="how-to-write" class="col-span-12 md:col-span-4 md:col-end-13 md:row-span-8  md:row-start-2 h-screen mx-4"></div>
   </div>
   <div id="character_change_area">
   <%= link_to "キャラクターを変更", character_form_path, data: { turbo_stream: true } %>
