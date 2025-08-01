@@ -1,20 +1,20 @@
 <div class="character-form" data-controller="closable" data-closable-target="content">
   <div class="modal-content bg-white border border-gray-400 rounded-lg">
     <div class="flex justify-end">
-      <button type="button" data-action="closable#close" class=" text-gray-500 hover:text-gray-800 p-4">
+      <button type="button" data-action="closable#close" class=" text-gray-500 hover:text-gray-800 m-4">
       ✕
       </button>
     </div>
-    <h3 class="text-center m-2">好きなキャラクターに褒めてもらおう！</h3>
+    <h3 class="text-center mb-2">好きなキャラクターに褒めてもらおう！</h3>
 
     <div class="character-grid grid grid-cols-3">
       <% @available_characters.each do |character| %>
         <%= button_to update_character_path(user: { character_id: character.id }),
                       method: :patch,
-                      form: { data: { turbo_stream: true } },
-                      class: "character-option col-span-3 p-4" do %>
-          <%= image_tag character.image_url, alt: character.name, class: "rounded-full border-2 border-gray-300 mt-4 mb-2" %>
-          <p><%= character.name %></p>
+                      class: "character-option col-span-3 p-4",
+                      data: { turbo_stream: true } do %>
+          <%= image_tag character.image_url, alt: character.name, class: "rounded-full border-2 border-gray-300 my-2" %>
+          <p class="text-sm"><%= character.name %></p>
         <% end %>
       <% end %>
     </div>
