@@ -1,5 +1,14 @@
 class DescriptionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :how_character_selection, :how_to_write, :how_to_use, :profile_setting ]
+  skip_before_action :authenticate_user!, only: [ :how_character_selection, :how_to_write, :how_to_use, :profile_setting, :calendar_description ]
+  # 「カレンダー」
+  def calendar_description
+    respond_to do |format|
+      format.turbo_stream do
+      render turbo_stream: turbo_stream.append("calendar-description", partial: "shared/calendar_description")
+      end
+    end
+  end
+
   # 「キャラクター変更」
   def how_character_selection
     respond_to do |format|

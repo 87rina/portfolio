@@ -5,8 +5,10 @@
     icon: "calendar",
     logged_in_path: posts_path,
     logged_in_options: {},
-    guest_path: "#",
-    guest_options: {}
+    guest_path: calendar_description_path,
+    guest_options: {
+      data: { turbo_stream: true, turbo_action: "append", turbo_target: "body" }
+    }
   },
   {
     label: "キャラクター変更",
