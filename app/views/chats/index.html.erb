@@ -1,19 +1,33 @@
 <!-- ページネーション後、背景画像を全画面共有にする -->
-<div class="grid grid-cols-1 md:grid-cols-12 grid-rows-10 h-screen bg-hero-pattern bg-cover bg-top">
+<div class="grid grid-cols-12 md:grid-rows-10 h-full bg-hero-pattern bg-cover bg-top">
   <!-- menu 画面左-->
-  <div class="col-span-1 md:col-span-2 row-span-10 w-full p-4 fixed bottom-0 bg-white md:static md:h-full">
+  <div class="md:col-span-2 row-span-10 w-full p-4 fixed bottom-0 bg-white md:static">
     <%= render 'menu' %>
   </div>
   <!-- 説明画面 -->
   <!-- カレンダー説明 -->
-  <div id="calendar-description" class="md:col-start-3 md:col-span-2 md:row-start-1 md:row-span-2 w-full"></div>
+  <div id="calendar-description" 
+    class="col-span-10 col-start-2 row-span-3 row-start-4
+          md:col-start-3 md:col-span-2 md:row-span-2 md:row-start-1 w-full
+          relative z-50 md:z-auto">
+  </div>
   <!-- キャラクター変更 -->
-  <div id="character-selection" class="md:col-start-3 md:col-span-2 md:row-start-3 md:row-span-2 w-full"></div>
+  <div id="character-selection"
+    class="col-span-10 col-start-2 row-span-3 row-start-4
+           md:col-start-3 md:col-span-2 md:row-span-2 md:row-start-3 w-full
+           relative z-50 md:z-auto">
+  </div>
   <!-- プロフィール設定 -->
-  <div id="profile-setting" class="md:col-start-3 md:col-span-2 md:row-start-8 md:row-span-2 w-full md:pt-10"></div>
+  <div id="profile-setting"
+    class="col-span-10 col-start-2 row-span-3 row-start-4
+           md:col-start-3 md:col-span-2 md:row-span-2 md:row-start-8 w-full
+           relative z-50 md:z-auto">
+  </div>
 
   <!-- chat 画面中央-->
-  <div class="col-span-1 row-span-7 row-start-2 md:col-span-4 md:col-start-5 md:row-span-10 p-4 overflow-hidden">
+  <div class="col-span-10 col-start-2 row-span-4 row-start-2
+              md:col-span-4 md:col-start-5 md:row-span-10
+              p-4 mb-6 overflow-hidden">
     <div class="w-full text-center ">
       <h1 class="sm:text-sm md:text-xl lg:text-2xl mt-4 mb-6 text-gray-600">今日のいいところ</h1>
       <!-- ユーザー入力フォーム -->
@@ -67,7 +81,7 @@
     </div>
 
     <!-- 画面右 -->   
-    <div class="col-span-1 md:col-span-2 md:col-end-13 row-span-1 row-start-1 p-4 ">
+    <div class="col-span-10 col-start-2 md:col-span-2 md:col-end-13 row-span-1 row-start-1 p-4 ">
       <!-- 上部：リード文 -->
       <% if user_signed_in? %>
         <%= render 'lead' %>
@@ -76,10 +90,15 @@
       <% end %>
     </div>
     <!-- 会話履歴 -->
-    <div class="col-span-12 md:col-span-4 md:col-end-13 md:row-span-10  md:row-start-1 overflow-y-auto mx-4 py-6">
+    <div class="col-span-12
+                md:col-span-4 md:col-end-13 md:row-span-10 md:row-start-1
+                overflow-y-auto mx-4 py-6">
       <div id="conversation-history"></div>
     </div>
-    <div class="col-span-12 md:col-span-4 md:col-end-13 md:row-span-8  md:row-start-2 h-full mx-4">
+
+    <div class="col-span-10 col-start-2 row-span-3 row-start-1
+                md:col-span-4 md:col-end-13 md:row-span-8 md:row-start-2
+                h-full md:mx-4 relative z-50 md:z-auto">
       <!-- 「書き方に困ったら」-->
       <div id="how-to-write"></div>
       <!-- キャラクター変更画面 -->
