@@ -1,86 +1,68 @@
 <!-- ページネーション後、背景画像を全画面共有にする -->
-<div class="grid grid-cols-12 md:grid-rows-10 h-full bg-hero-pattern bg-cover bg-top">
+<div class="grid grid-cols-12 grid-rows-10 h-full bg-hero-pattern bg-cover bg-top">
+
   <!-- menu 画面左-->
   <div class="md:col-span-2 row-span-10 w-full p-4 fixed bottom-0 bg-white md:static">
     <%= render 'menu' %>
   </div>
-  <!-- 説明画面 -->
-  <!-- カレンダー説明 -->
-  <div id="calendar-description" 
-    class="col-span-10 col-start-2 row-span-3 row-start-4
-          md:col-start-3 md:col-span-2 md:row-span-2 md:row-start-1 w-full
-          relative z-50 md:z-auto">
-  </div>
-  <!-- キャラクター変更 -->
-  <div id="character-selection"
-    class="col-span-10 col-start-2 row-span-3 row-start-4
-           md:col-start-3 md:col-span-2 md:row-span-2 md:row-start-3 w-full
-           relative z-50 md:z-auto">
-  </div>
-  <!-- プロフィール設定 -->
-  <div id="profile-setting"
-    class="col-span-10 col-start-2 row-span-3 row-start-4
-           md:col-start-3 md:col-span-2 md:row-span-2 md:row-start-8 w-full
-           relative z-50 md:z-auto">
-  </div>
 
   <!-- chat 画面中央-->
-  <div class="col-span-10 col-start-2 row-span-4 row-start-2
+  <div class="col-span-10 col-start-2 row-span-5 row-start-2
               md:col-span-4 md:col-start-5 md:row-span-10
               p-4 mb-6 overflow-hidden">
     <div class="w-full text-center ">
       <h1 class="sm:text-sm md:text-xl lg:text-2xl mt-4 mb-6 text-gray-600">今日のいいところ</h1>
       <!-- ユーザー入力フォーム -->
       <%= form_with url: chats_path, method: :post, local: false do |f| %>
-        <div class="flex justify-center mb-4">
-          <div class="w-full border-4 border-amber-400 rounded-md">
-            <%= f.text_area :content, placeholder: "ポジティブな言葉で書いてみましょう！", class: "w-full rounded-md text-center" %>
-          </div>
+      <div class="flex justify-center mb-4">
+        <div class="w-full border-4 border-amber-400 rounded-md">
+          <%= f.text_area :content, placeholder: "ポジティブな言葉で書いてみましょう！", class: "w-full rounded-md text-center" %>
         </div>
-        <!-- 投稿ボタン -->
-        <%= f.submit "さすが自分！", class: "w-200 hover:bg-amber-300 text-gray font-bold py-2 px-4 rounded-md shadow-md transition" %> 
-        <% end %>
-        <!-- AI返答フォーム -->
-        <div class="flex justify-center mt-4">
-          <div class="w-full border-4 border-cyan-400 rounded-md p-4 bg-white">
-            <% stream_id = user_signed_in? ? "chat_user_#{current_user.id}" : "chat_guest_#{session.id}" %>
+      </div>
+      <!-- 投稿ボタン -->
+      <%= f.submit "さすが自分！", class: "w-200 hover:bg-amber-300 text-gray font-bold py-2 px-4 rounded-md shadow-md transition" %> 
+      <% end %>
+      <!-- AI返答フォーム -->
+      <div class="flex justify-center mt-4">
+        <div class="w-full border-4 border-cyan-400 rounded-md p-4 bg-white">
+          <% stream_id = user_signed_in? ? "chat_user_#{current_user.id}" : "chat_guest_#{session.id}" %>
             <%= turbo_stream_from stream_id %>
-              <div id="chat_messages">
-                <%= render partial: "message", collection: @messages, as: :message %>
-              </div>
-              <!-- キャラクターの表示 -->
-              <div id="character_area">
-                  <%= render 'devise/character_display', user: current_user %>
-              </div>
-          </div>
+            <div id="chat_messages">
+              <%= render partial: "message", collection: @messages, as: :message %>
+            </div>
+            <!-- キャラクターの表示 -->
+            <div id="character_area">
+                <%= render 'devise/character_display', user: current_user %>
+            </div>
         </div>
-        <!-- 各種ボタン -->
-        <div class="flex flex-wrap justify-center items-cente">
-          <!-- xシェアボタン-->
-          <div class="mx-4 my-2">
-            <a href="https://twitter.com/intent/tweet?text=ポジティブを育てよう！&url=https%3A%2F%2Fjibun-love.com%2F&hashtags=じぶんLOVE,ポジティブ思考,自己肯定感"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="my-x-share-button text-gray-600 hover:text-cyan-400 text-xs md:text-sm"
-            >
-            Xでシェア
-            </a>
-          </div>
-          <!-- リセットボタン -->
-          <div class="mx-4 my-3 text-gray-600 hover:text-amber-400 text-xs md:text-sm">
-            <%= button_to '新しく書く', chat_reset_path, method: :delete %>
-          </div>
-          <!-- 会話履歴 PC画面のみ表示-->
-          <div class="mx-4 my-2 text-gray-600 hover:text-pink-400 hidden md:block">
-            <%= link_to "会話履歴", conversation_history_path,
-                        data: { turbo_stream: true, turbo_target: "conversation-history" },
-                        class: "btn btn-secondary text-sm" %>           
-          </div>
+      </div>
+      <!-- 各種ボタン -->
+      <div class="flex flex-wrap justify-center items-cente">
+        <!-- xシェアボタン-->
+        <div class="mx-4 my-2">
+          <a href="https://twitter.com/intent/tweet?text=ポジティブを育てよう！&url=https%3A%2F%2Fjibun-love.com%2F&hashtags=じぶんLOVE,ポジティブ思考,自己肯定感"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="my-x-share-button text-gray-600 hover:text-cyan-400 text-xs md:text-sm"
+          >
+          Xでシェア
+          </a>
+        </div>
+        <!-- リセットボタン -->
+        <div class="mx-4 my-3 text-gray-600 hover:text-amber-400 text-xs md:text-sm">
+          <%= button_to '新しく書く', chat_reset_path, method: :delete %>
+        </div>
+        <!-- 会話履歴 PC画面のみ表示-->
+        <div class="mx-4 my-2 text-gray-600 hover:text-pink-400 hidden md:block">
+          <%= link_to "会話履歴", conversation_history_path,
+                      data: { turbo_stream: true, turbo_target: "conversation-history" },
+                      class: "btn btn-secondary text-sm" %>           
         </div>
       </div>
     </div>
-
-    <!-- 画面右 -->   
+  </div>
+ 
+  <!-- 画面右 -->   
     <div class="col-span-10 col-start-2 md:col-span-2 md:col-end-13 row-span-1 row-start-1 p-4 ">
       <!-- 上部：リード文 -->
       <% if user_signed_in? %>
@@ -89,19 +71,32 @@
         <%= render 'before_login_lead' %>
       <% end %>
     </div>
+  
     <!-- 会話履歴 -->
-    <div class="col-span-12
+    <div class="col-span-10
                 md:col-span-4 md:col-end-13 md:row-span-10 md:row-start-1
                 overflow-y-auto mx-4 py-6">
       <div id="conversation-history"></div>
     </div>
 
+    <!-- menu:説明画面 -->
+    <div class="col-span-10 col-start-2 row-span-2 row-start-5
+    md:col-start-3 md:col-span-2 md:row-span-2 md:row-start-1 w-full
+    md:mx-4 relative z-50 md:z-auto">
+      <!-- カレンダー説明 -->
+      <div id="calendar-description"></div>
+      <!-- キャラクター変更 -->
+      <div id="character-selection"></div>
+      <!-- プロフィール設定 -->
+      <div id="profile-setting"></div>
+    </div>
+
     <div class="col-span-10 col-start-2 row-span-3 row-start-1
-                md:col-span-4 md:col-end-13 md:row-span-8 md:row-start-2
-                h-full md:mx-4 relative z-50 md:z-auto">
-      <!-- 「書き方に困ったら」-->
-      <div id="how-to-write"></div>
+    md:col-span-4 md:col-end-13 md:row-span-8 md:row-start-2
+    h-full md:mx-4 relative z-50 md:z-auto">
       <!-- キャラクター変更画面 -->
       <div id="character-form-container"></div>
-    </div> 
-  </div>
+      <!-- 「書き方に困ったら」-->
+      <div id="how-to-write"></div>
+    </div>    
+  </div>  
