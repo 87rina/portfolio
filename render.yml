@@ -1,0 +1,42 @@
+services:
+  # redis
+  - type: keyvalue
+    name: jibun-love_redis
+    plan: starter
+    maxmemoryPolicy: noeviction
+    ipAllowList: []
+  # sidekiq
+  - type: worker
+    name: jibun-love_worker
+    runtime: ruby
+    buildCommand: bundle install
+    startCommand: bundle exec sidekiq
+    envVars:
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: jibun-love_redis
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+  # web service
+  - type: web
+    name: jibun-love
+    env: ruby
+    buildCommand: bundle install
+    startCommand: bundle exec rails server
+    autoDeploy: true
+    plan: free
+    envVars:
+      - key: REDIS_URL
+        fromService:
+          type: keyvalue
+          name: jibun-love_redis
+          property: connectionString 
+      - key: DATABASE_URL
+        fromDatabase:
+          name: jibun-love_DB
+          property: connectionString
+    migrations:
+      - bundle exec rails db:migrate
+      - bundle exec rails db:seed
