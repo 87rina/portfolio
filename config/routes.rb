@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: "users/sessions",
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    passwords: "users/passwords"
   }, skip: [ :registrations ]
   # カスタムルーティング
   devise_scope :user do
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
     get "users/edit", to: "users/registrations#edit", as: :edit_user_registration
     put "users", to: "users/registrations#update"
     delete "users", to: "users/registrations#destroy"
+    
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
