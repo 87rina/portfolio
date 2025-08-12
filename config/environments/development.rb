@@ -39,10 +39,12 @@ Rails.application.configure do
 
   # Disable caching for Action Mailer templates even if Action Controller
   # caching is enabled.
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_caching = true
+
+  config.action_mailer.delivery_method = :letter_opener_web
   # パスワードリセット時のメール内リンクの表示先
   # 本番環境は`host:xxxx.com`に変える
-  config.action_mailer.default_url_options = { host: "localhost", port: 3003 }
+  config.action_mailer.default_url_options =  { host: "localhost", port: 3003 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
