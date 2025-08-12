@@ -25,7 +25,8 @@ Devise.setup do |config|
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = "じぶんLOVE<no-reply@jibunlove.com>"
-
+  # パスワードリセットの有効期限30分
+  config.reset_password_within = 30.minutes
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
