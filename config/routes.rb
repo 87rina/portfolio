@@ -38,5 +38,10 @@ Rails.application.routes.draw do
 
   resources :chats, only: [ :index, :create ]
   resources :posts, only: [ :index, :show, :destroy ]
-  resource :profile, only: [ :show, :edit, :update ]
+  resource :profile, only: [:show] do
+    get :edit_name
+    patch :update_name
+    get :edit_avatar
+    patch :update_avatar
+  end
 end
