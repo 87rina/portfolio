@@ -1,0 +1,11 @@
+<%= turbo_stream.update "name" do %>
+  <span class="block mt-1 ml-2"><%= @user.name %></span>
+<% end %>
+    
+  <%= turbo_stream.update "name-edit-form" do %>
+    <!-- 空にして閉じる -->
+  <% end %>
+  
+  <%= turbo_stream.update "flash" do %>
+    <%= render "layouts/flash" %>
+  <% end %>

@@ -1,0 +1,10 @@
+
+<div class="how-to-write" data-controller="closable" data-closable-target="content">
+  <%= form_with model: @user, url:  update_name_profile_path, method: :patch do |f| %>
+    <div>
+      <%= f.label :name, "名前" %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit "更新" %>
+  <% end %>
+  </div>

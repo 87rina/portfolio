@@ -11,34 +11,38 @@ class ProfilesController < ApplicationController
     @user = current_user
 
     respond_to do |format|
-      format.html
-      format.turbo_stream 
-    end
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update("name-edit-form", partial: "profiles/edit_name", locals: { user: @user }
+      )
+      end 
+    end 
   end
 
   def update_name
     @user = current_user
 
     if @user.update(profile_params)
-      respond_to do |format|
-        format.html { redirect_to profile_path, notice: "名前を更新しました。" }
-        format.turbo_stream
-      end
-    else
-      respond_to do |format|
-        format.html { render :edit_name, status: :unprocessable_entity }
-        format.turbo_stream { render :edit_name, status: :unprocessable_entity }
+        flash.now[:notice] = "名前を更新しました。"
+      
+        respond_to do |format|
+          format.html { redirect_to profile_path }
+          format.turbo_stream
+        end
+      else
+        respond_to do |format|
+          format.html { render :edit_name, status: :unprocessable_entity }
+          format.turbo_stream { render :edit_name, status: :unprocessable_entity }
+        end
       end
     end
-  end
 
   # アバター編集
   def edit_avatar
     @user = current_user
 
     respond_to do |format|
-      format.html
-      format.turbo_stream 
+        format.html
+        format.turbo_stream 
     end
   end
 
