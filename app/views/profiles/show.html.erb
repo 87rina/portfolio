@@ -1,0 +1,65 @@
+<div class="container mx-auto px-4">
+  <div class="w-full">
+    <h1 class="text-2xl text-center font-bold my-6 text-gray-600"><%= t('.title') %></h1> 
+    <div class="grid grid-cols-1 grid-row-5 md:grid-cols-5 w-full justify-center p-4">
+      
+      <!-- 画面左：アバター表示 -->
+      <div class="md:col-span-1 flex flex-col text-center">
+        <!-- アバター表示 -->
+        <div id="main-username">
+          <%= render "shared/username", user: @user %>
+        </div>
+        <div class="text-sm mt-2">
+          <p>ユーザー登録日</p>
+          <p><%= l(@user.created_at, format: :short) %></p>
+        </div>
+      </div>
+
+      <!-- 画面中央：基本情報表示 -->
+      <div class="col-span-1 md:col-span-2 md:col-start-2 flex flex-col m-4">
+        <h2>基本情報</h2>
+        <div class="border-2 text-sm">
+          <div class="my-4 p-2">
+            <div class="flex items-center justify-between mb-2">
+              <p>名前</p>
+              <%= link_to "編集", edit_name_profile_path,
+                          data: { turbo_stream: true, turbo_action: "update", turbo_target: "body" },
+                          class: "bg-amber-200 text-sm px-1" %>
+            </div>
+            <div id="name">
+              <%= render "shared/username", user: @user %>
+            </div>
+          </div>
+
+          <div class="my-4 p-2">
+            <div class="flex items-center justify-between mb-2">
+              <p>メールアドレス</p>
+              <%= link_to "編集", "#", class: "bg-amber-200 text-sm px-1" %>
+            </div>
+            <span><%= @user.email %></span>
+          </div>
+
+          <div class="my-4 p-2">
+            <div class="flex items-center justify-between mb-2">
+              <p>パスワード</p>
+              <%= link_to "編集", "#", class: "bg-amber-200 text-sm px-1" %>
+            </div>
+            <span></span>  
+          </div>
+
+          <div class="my-4 p-2">
+            <div class="flex items-center justify-between mb-2">
+              <p>プロフィール画像</p>
+              <%= link_to "編集", "#", class: "bg-amber-200 text-sm px-1" %>
+            </div>
+            <span></span>
+          </div>
+        </div>
+        <turbo-frame id="profile_name_edit"></turbo-frame>
+      </div>
+      <div class="col-span-1 row-span-1 row-start-1 md:col-span-2 md:col-start-4 m-4 flex justify-center">
+        <div id="name-edit-form"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<%= turbo_stream.replace "name", partial: "shared/username", locals: { user: @user } %>
+<%= turbo_stream.replace "main-username", partial: "shared/username", locals: { user: @user } %>
+<%= turbo_stream.replace "username", partial: "shared/username", locals: { user: @user } %>
+    
+<%= turbo_stream.update "name-edit-form" do %>
+  <!-- 空にして閉じる -->
+<% end %>
+  
+<%= turbo_stream.update "flash" do %>
+  <%= render "layouts/flash" %>
+<% end %>
