@@ -21,7 +21,7 @@
         <div>
           <%= f.label :password, class: "text-sm font-medium text-gray-600" %>
           <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> 文字以上)</em>
+            <em class="text-sm">(<%= @minimum_password_length %> 文字以上)</em>
           <% end %>
           <%= f.password_field :password, class: "rounded-full mt-1 mb-6 w-full px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500" %>
         </div>
