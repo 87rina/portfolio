@@ -1,10 +1,19 @@
 
 <div class="how-to-write" data-controller="closable" data-closable-target="content">
-  <%= form_with model: @user, url:  update_name_profile_path, method: :patch do |f| %>
-    <div>
-      <%= f.label :name, "名前" %>
-      <%= f.text_field :name %>
+  <div class="w-64 border-2 bg-amber-100 my-10 px-4 py-2 rounded-md">
+    <div class="flex justify-end">
+      <button type="button" data-action="closable#close" class=" text-gray-500 hover:text-gray-800">
+      ✕
+      </button>
     </div>
-    <%= f.submit "更新" %>
-  <% end %>
+    <%= form_with model: @user, url:  update_name_profile_path, method: :patch do |f| %>
+      <div>
+        <%= f.label :name, class: "text-sm" %>
+        <%= f.text_field :name, class: "rounded-full m-1 w-full px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500" %>
+      </div>
+      <div class="text-center hover:text-amber-600 mt-4">
+        <%= f.submit "更新" %>
+      </div>
+    <% end %>
   </div>
+</div>
