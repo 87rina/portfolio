@@ -38,6 +38,14 @@ class ProfilesController < ApplicationController
 
   # アバター編集
   def edit_avatar
+    @user = current_user
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update("avatar-edit-form", partial: "profiles/edit_avatar", locals: { user: @user }
+      )
+      end
+    end
   end
 
   def update_avatar

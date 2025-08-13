@@ -50,7 +50,9 @@
           <div class="my-4 p-2">
             <div class="flex items-center justify-between mb-2">
               <p>プロフィール画像</p>
-              <%= link_to "編集", "#", class: "bg-amber-200 text-sm px-1" %>
+              <%= link_to "編集", edit_avatar_profile_path,
+              data: { turbo_stream: true, turbo_action: "update", turbo_target: "body" },
+              class: "bg-amber-200 text-sm px-1" %>
             </div>
             <span></span>
           </div>
@@ -59,6 +61,7 @@
       </div>
       <div class="col-span-1 row-span-1 row-start-1 md:col-span-2 md:col-start-4 m-4 flex justify-center">
         <div id="name-edit-form"></div>
+        <div id="avatar-edit-form"></div>
       </div>
     </div>
   </div>
