@@ -1,29 +1,59 @@
 class ProfilesController < ApplicationController
+# 名前、アバター管理
   before_action :authenticate_user!
-  # 名前、アバター管理 
+   
   def show
     @user = current_user
   end
 
-  def edit
+  # 名前編集
+  def edit_name
     @user = current_user
+
     respond_to do |format|
       format.html
-      format.turbo_stream
+      format.turbo_stream 
     end
   end
 
-  def update
+  def update_name
     @user = current_user
+
     if @user.update(profile_params)
       respond_to do |format|
-        format.html { redirect_to profile_path, notice: "プロフィールを更新しました。" }
+        format.html { redirect_to profile_path, notice: "名前を更新しました。" }
         format.turbo_stream
       end
     else
       respond_to do |format|
-        format.html { render :edit, status: :unprocessable_entity }
-        format.turbo_stream { render :edit, status: :unprocessable_entity }
+        format.html { render :edit_name, status: :unprocessable_entity }
+        format.turbo_stream { render :edit_name, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # アバター編集
+  def edit_avatar
+    @user = current_user
+
+    respond_to do |format|
+      format.html
+      format.turbo_stream 
+    end
+  end
+
+  def update_avatar
+    @user = current_user
+
+    if @user.update(profile_params)
+      respond_to do |format|
+        format.html { redirect_to profile_path, notice: "プロフィール画像を更新しました。" }
+        format.turbo_stream
+      end
+    else
+      respond_to do |format|
+        format.html { render :edit_avatar, status: :unprocessable_entity }
+        format.turbo_stream { render :edit_avatar, status: :unprocessable_entity }
       end
     end
   end
