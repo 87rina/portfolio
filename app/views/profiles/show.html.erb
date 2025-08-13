@@ -6,7 +6,9 @@
       <!-- 画面左：アバター表示 -->
       <div class="md:col-span-1 flex flex-col text-center">
         <!-- アバター表示 -->
-        <div id="name m-4"><%= @user.name %></div>
+        <div id="main-username">
+          <%= render "shared/username", user: @user %>
+        </div>
         <div class="text-sm">
           <p>ユーザー登録日</p>
           <p><%= l(@user.created_at, format: :short) %></p>
@@ -17,15 +19,15 @@
       <div class="col-span-1 md:col-span-2 md:col-start-2 flex flex-col m-4">
         <h2>基本情報</h2>
         <div class="border-2 text-sm">
-            <div class="my-4 p-2">
-              <div class="flex items-center justify-between">
-                <p>名前</p>
-                <%= link_to "編集", edit_name_profile_path, data: { turbo_stream: true, turbo_action: "update", turbo_target: "body" }, class: "bg-amber-200 text-sm px-1" %>
-              </div>
-              <div id="name">
-                <span class="block mt-1 ml-2"><%= @user.name %></span>
-              </div>
+          <div class="my-4 p-2">
+            <div class="flex items-center justify-between">
+              <p>名前</p>
+              <%= link_to "編集", edit_name_profile_path, data: { turbo_stream: true, turbo_action: "update", turbo_target: "body" }, class: "bg-amber-200 text-sm px-1" %>
             </div>
+            <div id="name">
+              <%= render "shared/username", user: @user %>
+            </div>
+          </div>
           <div class="my-4 p-2">
             <div class="flex items-center justify-between">
               <p>メールアドレス</p>
