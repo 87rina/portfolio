@@ -1,23 +1,23 @@
 <div class="container mx-auto px-4">
   <div class="flex justify-center">
     <div class="w-full max-w-lg mx-10 ">
-      <h1 class="text-2xl text-center my-6 text-gray-600"><%= t(".change_your_password") %></h1> 
+      <h1 class="text-2xl md:text-3xl text-center my-6 text-gray-600"><%= t(".change_your_password") %></h1> 
       <div class="border p-4 shadow">
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
           <%= f.hidden_field :reset_password_token %>
       
-          <div class="field">
+          <div class="field text-sm">
             <%= f.label :password, t(".new_password") %>
             <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> 文字以上)</em><br />
+            <em class="text-sm">(<%= @minimum_password_length %> 文字以上)</em><br />
             <% end %>
             <%= f.password_field :password, autofocus: true, autocomplete: "new-password",
                 class: "rounded-full mt-1 mb-6 w-full px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
             %>
           </div>
 
-          <div class="field">
+          <div class="field text-sm">
             <%= f.label :password_confirmation, t(".confirm_new_password") %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password",
                 class: "rounded-full mt-1 mb-6 w-full px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
