@@ -1,4 +1,8 @@
-<%= turbo_stream.replace "avatar_area", partial: "devise/character_display", locals: { user: @user } %>   
+<!-- プロフィール画像の置き換え -->
+<%= turbo_stream.replace "avatar-area", partial: "profiles/avatar_display", locals: { user: @user } %>   
+
+<!-- ファイル名の置き換え -->
+<%= turbo_stream.replace "avatar-filename", partial: "profiles/avatar_filename", locals: { user: @user } %> 
 
 <%= turbo_stream.update "avatar-edit-form" do %>
   <!-- 空にして閉じる -->
