@@ -5,8 +5,10 @@
       
       <!-- 画面左：アバター表示 -->
       <div class="md:col-span-1 md:flex md:flex-col text-center items-center md:mt-10">
-        <div id="avatar_area">  
-          <%= render 'profiles/avatar_display', user: @user %>
+        <div id="avatar_area">
+        <div class="">
+          <%= render "profiles/avatar_display", user: @user %>
+        </div>
         </div>
         <div id="main-username">
           <%= render "shared/username", user: @user %>
@@ -56,7 +58,9 @@
               data: { turbo_stream: true, turbo_action: "update", turbo_target: "body" },
               class: "bg-amber-200 text-sm px-1" %>
             </div>
-            <span></span>
+            <% if @user.avatar.attached? %>
+              <p>ファイル名: <%= @user.avatar.blob.filename %></p>
+            <% end %>
           </div>
         </div>
         <turbo-frame id="profile_name_edit"></turbo-frame>
