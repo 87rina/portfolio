@@ -43,5 +43,6 @@ module Myapp
 
     config.i18n.default_locale = :ja # デフォルトの言語
     config.time_zone = "Tokyo" # タイムゾーン
+    config.active_storage.variant_processor = :mini_magick # ActiveStorage
   end
 end

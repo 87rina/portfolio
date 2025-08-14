@@ -1,0 +1,13 @@
+<!-- プロフィール画像の置き換え -->
+<%= turbo_stream.replace "avatar-area", partial: "profiles/avatar_display", locals: { user: @user } %>   
+
+<!-- ファイル名の置き換え -->
+<%= turbo_stream.replace "avatar-filename", partial: "profiles/avatar_filename", locals: { user: @user } %> 
+
+<%= turbo_stream.update "avatar-edit-form" do %>
+  <!-- 空にして閉じる -->
+<% end %>
+  
+<%= turbo_stream.update "flash" do %>
+  <%= render "layouts/flash" %>
+<% end %>

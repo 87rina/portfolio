@@ -1,0 +1,3 @@
+<% if @user.avatar.attached? %>
+  <p>ファイル名: <%= @user.avatar.blob.filename %></p>
+<% end %>
