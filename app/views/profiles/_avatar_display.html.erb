@@ -1,0 +1,7 @@
+<div class="box-border border-2 rounded-full w-24 h-24 md:w-32 md:h-32 flex items-center justify-center mb-4 overflow-hidden">
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, class: "w-full h-full object-cover" %>
+  <% else %>
+    未設定
+  <% end %>
+</div>

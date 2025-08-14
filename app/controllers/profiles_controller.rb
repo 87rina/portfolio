@@ -49,7 +49,23 @@ class ProfilesController < ApplicationController
   end
 
   def update_avatar
+    @user = current_user
+
+    if @user.update(profile_params)
+      flash.now[:notice] = "プロフィール画像を更新しました。"
+
+      respond_to do |format|
+        format.html { redirect_to profile_path }
+        format.turbo_stream
+      end
+    else
+      respond_to do |format|
+        format.html { render :edit_avatar, status: :unprocessable_entity }
+        format.turbo_stream { render :edit_avatar, status: :unprocessable_entity }
+      end
+    end
   end
+
 
   private
 

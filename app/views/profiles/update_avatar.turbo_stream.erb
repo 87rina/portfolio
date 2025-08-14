@@ -1,0 +1,11 @@
+<%= turbo_stream.update "avatar_area" do %>
+  <%= render "devise/character_display", user: current_user %>
+<% end %>
+    
+<%= turbo_stream.update "avatar-edit-form" do %>
+  <!-- 空にして閉じる -->
+<% end %>
+  
+<%= turbo_stream.update "flash" do %>
+  <%= render "layouts/flash" %>
+<% end %>

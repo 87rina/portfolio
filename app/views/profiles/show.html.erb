@@ -4,8 +4,10 @@
     <div class="grid grid-cols-1 grid-row-5 md:grid-cols-5 w-full justify-center p-4">
       
       <!-- 画面左：アバター表示 -->
-      <div class="md:col-span-1 flex flex-col text-center">
-        <!-- アバター表示 -->
+      <div class="md:col-span-1 md:flex md:flex-col text-center items-center md:mt-10">
+        <div id="avatar_area">  
+          <%= render 'profiles/avatar_display', user: @user %>
+        </div>
         <div id="main-username">
           <%= render "shared/username", user: @user %>
         </div>
