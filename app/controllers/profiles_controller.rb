@@ -66,6 +66,12 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def remove_avatar
+    @user = current_user
+
+    @user.avatar.purge
+    redirect_to profile_path, notice: "画像を削除しました"
+  end
 
   private
 

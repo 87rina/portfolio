@@ -26,7 +26,7 @@
               <p>名前</p>
               <%= link_to "編集", edit_name_profile_path,
                           data: { turbo_stream: true, turbo_action: "update", turbo_target: "body" },
-                          class: "bg-amber-200 text-sm px-1" %>
+                          class: "bg-amber-200 hover:bg-amber-500 text-sm px-1" %>
             </div>
             <div id="name">
               <%= render "shared/username", user: @user %>
@@ -36,7 +36,7 @@
           <div class="my-4 p-2">
             <div class="flex items-center justify-between mb-2">
               <p>メールアドレス</p>
-              <%= link_to "編集", "#", class: "bg-amber-200 text-sm px-1" %>
+              <%= link_to "編集", "#", class: "bg-amber-200 hover:bg-amber-500 text-sm px-1" %>
             </div>
             <span><%= @user.email %></span>
           </div>
@@ -44,21 +44,30 @@
           <div class="my-4 p-2">
             <div class="flex items-center justify-between mb-2">
               <p>パスワード</p>
-              <%= link_to "編集", "#", class: "bg-amber-200 text-sm px-1" %>
+              <%= link_to "編集", "#", class: "bg-amber-200 hover:bg-amber-500 text-sm px-1" %>
             </div>
             <span></span>  
           </div>
 
           <div class="my-4 p-2">
-            <div class="flex items-center justify-between mb-2">
+            <div class="flex items-center mb-2 justify-between">
+            <div class="flex items-center">
               <p>プロフィール画像</p>
+              <%= button_to "削除",
+                          remove_avatar_profile_path,
+                          method: :delete,
+                          data: { turbo_confirm: "本当に削除しますか？" },
+                          class: "text-amber-500 hover:text-amber-800 text-sm px-4" %>
+               </div>
+                <div>
               <%= link_to "編集", edit_avatar_profile_path,
                           data: { turbo_stream: true, turbo_action: "update", turbo_target: "body" },
-                          class: "bg-amber-200 text-sm px-1" %>
+                          class: "bg-amber-200 hover:bg-amber-500 text-sm px-1" %>
+            </div>
             </div>
             <div id="avatar-filename">
               <%= render "profiles/avatar_filename", user: @user %>
-            </div>
+            </div>  
           </div>
         </div>
       </div>

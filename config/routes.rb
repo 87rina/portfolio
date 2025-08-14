@@ -43,5 +43,6 @@ Rails.application.routes.draw do
     patch :update_name
     get :edit_avatar
     patch :update_avatar
+    delete :remove_avatar
   end
 end
