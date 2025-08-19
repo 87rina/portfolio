@@ -36,6 +36,22 @@ class ProfilesController < ApplicationController
     end
   end
 
+  # メールアドレス編集
+  def edit_email
+    @user = current_user
+  end
+
+  def update_email
+    @user = current_user
+
+    if @user.update(profile_params)
+      redirect_to profile_path, notice: "確認メールを送信しました。メール内のリンクをクリックして変更を完了してください。"
+    else
+      flash.now[:alert] = "メールアドレスを更新できませんでした。"
+      render :edit_email, status: :unprocessable_entity
+    end
+  end
+
   # アバター編集
   def edit_avatar
     @user = current_user
@@ -76,6 +92,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:user).permit(:name, :avatar)
+    params.require(:user).permit(:name, :email, :avatar)
   end
 end

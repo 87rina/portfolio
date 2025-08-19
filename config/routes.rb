@@ -41,6 +41,8 @@ Rails.application.routes.draw do
   resource :profile, only: [ :show ] do
     get :edit_name
     patch :update_name
+    get :edit_email
+    patch :update_email
     get :edit_avatar
     patch :update_avatar
     delete :remove_avatar
