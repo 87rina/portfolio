@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     sessions: "users/sessions",
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    passwords: "users/passwords"
   }, skip: [ :registrations ]
   # カスタムルーティング
   devise_scope :user do
@@ -46,5 +47,8 @@ Rails.application.routes.draw do
     get :edit_avatar
     patch :update_avatar
     delete :remove_avatar
+  end
+  namespace :user do
+    resource :password, only: [ :edit, :update ]
   end
 end
