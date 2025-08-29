@@ -34,11 +34,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super do                                             # 他はdeviseの機能をそのまま流用する
-      resource.update(confirmed_at: Time .now.utc)       # Welcomeメールを送信した上で、skip_confirmation!と同一処理を行い自動で認証クローズさせる
-      #↓と同じ意味になります。
-      # resource.skip_confirmation!
-      # resource.save
+    # 他はdeviseの機能をそのまま流用する
+    super do
+      # Welcomeメールを送信した上で、skip_confirmation!と同一処理を行い自動で認証クローズさせる
+      resource.update(confirmed_at: Time .now.utc)
     end
   end
 
