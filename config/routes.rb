@@ -49,6 +49,6 @@ Rails.application.routes.draw do
     delete :remove_avatar
   end
   namespace :user do
-    resource :password, only: [ :edit, :update ]
+    resource :account_password, only: [ :edit, :update ], controller: "account_passwords"
   end
 end

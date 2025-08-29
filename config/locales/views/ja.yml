@@ -35,8 +35,8 @@ ja:
     edit_email:
       title: メールアドレス変更
       submit: 変更する
-  users:
-    passwords:
+  user:
+    account_passwords:
       edit:
         change_your_password: パスワード変更
         current_password: 現在のパスワード
