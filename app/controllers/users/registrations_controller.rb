@@ -33,9 +33,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    # 他はdeviseの機能をそのまま流用する
+    super do
+      # Welcomeメールを送信した上で、skip_confirmation!と同一処理を行い自動で認証クローズさせる
+      resource.update(confirmed_at: Time .now.utc)
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -83,6 +87,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
   private
 
   def character_params

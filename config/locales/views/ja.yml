@@ -32,6 +32,9 @@ ja:
   profiles:
     show:
       title: プロフィール設定
+    edit_email:
+      title: メールアドレス変更
+      submit: 変更する
   header:
     login: ログイン
     logout: ログアウト
