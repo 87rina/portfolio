@@ -35,6 +35,14 @@ ja:
     edit_email:
       title: メールアドレス変更
       submit: 変更する
+  user:
+    account_passwords:
+      edit:
+        change_your_password: パスワード変更
+        current_password: 現在のパスワード
+        new_password: 新しいパスワード
+        confirm_new_password: 確認用新しいパスワード
+        change_my_password: パスワードを変更する
   header:
     login: ログイン
     logout: ログアウト
