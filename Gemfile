@@ -33,6 +33,9 @@ gem "redis", "~> 4.8"
 # 翻訳
 gem "devise-i18n"
 gem "rails-i18n", "~> 7.0.0"
+# LINEログイン用
+gem "omniauth-line"
+gem "omniauth-rails_csrf_protection"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
