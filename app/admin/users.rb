@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  config.filters = false #一覧表示、編集のみ。検索、絞り込みはなし。
+  config.filters = false # 一覧表示、編集のみ。検索、絞り込みはなし。
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -15,5 +15,4 @@ ActiveAdmin.register User do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

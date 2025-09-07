@@ -13,7 +13,7 @@
                       method: :patch,
                       class: "character-option col-span-3 p-4",
                       data: { turbo_stream: true } do %>
-          <%= image_tag character.image_url, alt: character.name, class: "rounded-full border-2 border-gray-300 my-2" %>
+          <%= image_tag character.image, class: "rounded-full border-2 border-gray-300 size-20 object-cover" %>
           <p class="text-[12px] md:text-sm"><%= character.name %></p>
         <% end %>
       <% end %>
@@ -24,7 +24,11 @@
         <p class="m-2"><%= current_user.character&.name || "デフォルト" %></p>
       </div>
       <div class="place-items-center">
-        <%= image_tag current_user.character&.image_url, class: "rounded-full border-2 border-gray-300 size-20" %>
+        <% if defined?(user) && user.present? && user.character.present? %>
+          <%= image_tag user.character.image, class: "rounded-full border-2 border-gray-300 size-20 object-cover"%>
+        <% else %>
+          <%= image_tag "characters/default.png", class: "rounded-full border-2 border-gray-300 size-20 object-cover" %>
+        <% end %>
       </div>
     </div>  
   </div>

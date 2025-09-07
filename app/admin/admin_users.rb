@@ -1,5 +1,5 @@
 ActiveAdmin.register AdminUser do
-  config.filters = false #一覧表示、編集のみ。検索、絞り込みはなし。
+  config.filters = false # 一覧表示、編集のみ。検索、絞り込みはなし。
   permit_params :email, :password, :password_confirmation
 
   index do
@@ -20,5 +20,4 @@ ActiveAdmin.register AdminUser do
     end
     f.actions
   end
-
 end
