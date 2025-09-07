@@ -1,6 +1,14 @@
 ActiveAdmin.register Character do
   config.filters = false #一覧表示、編集のみ。検索、絞り込みはなし。
 
+  form do |f|
+    f.inputs do
+      f.input :name
+      f.input :system_prompt
+      f.input :image, as: :file  # 画像アップロード可能
+    end
+    f.actions
+  end
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
