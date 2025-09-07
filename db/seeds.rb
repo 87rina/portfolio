@@ -17,3 +17,4 @@ characters.each do |char|
     c.image_url = char["image_url"]
   end
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
