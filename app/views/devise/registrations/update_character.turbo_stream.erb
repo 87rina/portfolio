@@ -1,6 +1,10 @@
 <%= turbo_stream.update "character_area" do %>
   <%= render "devise/character_display", user: current_user %>
 <% end %>
+
+<%= turbo_stream.update "character_name_area" do %>
+  <%= render "devise/character_name_display", user: current_user %>
+<% end %>
   
 <%= turbo_stream.update "character-form-container" do %>
   <!-- 空にして閉じる -->

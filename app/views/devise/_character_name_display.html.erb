@@ -1,0 +1,7 @@
+<div class="character-name-display">
+  <% if defined?(user) && user.present? && user.character.present? %>
+    <span>キャラクター：<%= user.character.name %></span>
+  <% else %>
+     <span>キャラクター：デフォルト</span>
+  <% end %>
+</div>
