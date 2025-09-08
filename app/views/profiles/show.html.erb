@@ -85,11 +85,10 @@
         <div class="border-2 text-sm">
           <div class="my-4 p-2">
             <div class="flex items-center justify-between mb-2">
-              <% if defined?(user) && user.present? && user.character.present? %>
-                <span>キャラクター：<%= user.character.name %></span>
-              <% else %>
-                <span>キャラクター：デフォルト</span>
-              <% end %>
+              <!-- キャラクターnameの表示 -->
+              <div id="character_name_area">
+                <%= render 'devise/character_name_display', user: current_user %>
+              </div>
               <%= link_to "変更", character_form_path,
                           data: { turbo_stream: true },
                           class: "bg-amber-200 hover:bg-amber-500 text-sm px-1" %>

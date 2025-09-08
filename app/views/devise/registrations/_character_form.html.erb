@@ -24,8 +24,8 @@
         <p class="m-2"><%= current_user.character&.name || "デフォルト" %></p>
       </div>
       <div class="place-items-center">
-        <% if defined?(user) && user.present? && user.character.present? %>
-          <%= image_tag user.character.image, class: "rounded-full border-2 border-gray-300 size-20 object-cover"%>
+        <% if defined?(current_user) && current_user.present? && current_user.character.present? %>
+          <%= image_tag current_user.character.image, class: "rounded-full border-2 border-gray-300 size-20 object-cover"%>
         <% else %>
           <%= image_tag "characters/default.png", class: "rounded-full border-2 border-gray-300 size-20 object-cover" %>
         <% end %>
