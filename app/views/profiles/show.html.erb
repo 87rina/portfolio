@@ -6,7 +6,7 @@
       </div>
 
       <!-- 画面左：アバター表示 -->
-      <div class="md:col-start-1 md:col-span-2 md:row-start-2 md:flex md:flex-col text-center items-center md:mt-10">
+      <div class="md:col-start-1 md:col-span-2 md:row-span-2 md:row-start-2 md:flex md:flex-col text-center items-center md:mt-10">
         <div id="avatar-area">
           <%= render "profiles/avatar_display", user: @user %>
         </div>
@@ -20,7 +20,7 @@
       </div>
 
       <!-- 画面中央：基本情報表示 -->
-      <div class="col-span-2 md:col-span-4 md:col-start-3  md:col-span-1 md:row-start-2 flex flex-col m-4">
+      <div class="col-span-2 md:col-span-4 md:col-start-3  md:col-span-1 md:row-span-2 md:row-start-2 flex flex-col m-4">
         <h2>基本情報</h2>
         <div class="border-2 text-sm">
           <div class="my-4 p-2">
@@ -89,6 +89,19 @@
                           data: { turbo_stream: true },
                           class: "bg-amber-200 hover:bg-amber-500 text-sm px-1" %>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 画面右下：ステータス -->
+      <div class="col-span-1 md:col-span-4 md:col-start-7 md:row-start-3 m-4">
+        <h2>ステータス</h2>
+        <div class="border-2 text-sm">
+          <div class="my-2 p-2">
+            <p class="text-sm lg:text-base">累計ポジティブ数：<%= @total_posts_count %></p>
+          </div>
+          <div class="my-2 p-2">
+            <p class="text-sm lg:text-base">連続記録日数：<%= @consecutive_days %> 日</p>
           </div>
         </div>
       </div>
