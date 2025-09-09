@@ -7,6 +7,7 @@ ActiveAdmin.register Badge do
       f.input :name
       f.input :description
       f.input :condition
+      f.input :threshold
       f.input :image, as: :file
     end
     f.actions
