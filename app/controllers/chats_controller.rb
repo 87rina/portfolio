@@ -7,6 +7,7 @@ class ChatsController < ApplicationController
   def create
     if user_signed_in?
       @post = current_user.posts.create!(content: params[:content])
+      BadgeService.new(current_user).evaluate!
     else
       @post = Post.create!(content: params[:content], session_id: session.id)
     end

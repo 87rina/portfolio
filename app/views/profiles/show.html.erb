@@ -20,7 +20,7 @@
       </div>
 
       <!-- 画面中央：基本情報表示 -->
-      <div class="col-span-2 md:col-span-4 md:col-start-3  md:col-span-1 md:row-span-2 md:row-start-2 flex flex-col m-4">
+      <div class="col-span-2 md:col-span-3 md:col-start-3 md:row-span-2 md:row-start-2 flex flex-col m-2">
         <h2>基本情報</h2>
         <div class="border-2 text-sm">
           <div class="my-4 p-2">
@@ -52,7 +52,7 @@
             <span>⚫︎⚫︎⚫︎⚫︎⚫︎⚫︎</span>  
           </div>
 
-          <div class="my-4 p-2">
+          <div class="my-4 p-2 pb-10">
             <div class="flex items-center mb-2 justify-between">
             <div class="flex items-center">
               <p>プロフィール画像</p>
@@ -76,7 +76,7 @@
       </div>
 
       <!-- 画面右：各種設定状況 -->
-      <div class="col-span-1 md:col-span-4 md:col-start-7 md:row-start-2 m-4">
+      <div class="col-span-1 md:col-span-3 md:col-start-7 md:row-start-2 m-2">
         <h2>各種設定状況</h2>
         <div class="border-2 text-sm">
           <div class="my-4 p-2">
@@ -94,7 +94,7 @@
       </div>
 
       <!-- 画面右下：ステータス -->
-      <div class="col-span-1 md:col-span-4 md:col-start-7 md:row-start-3 m-4">
+      <div class="col-span-1 md:col-span-3 md:col-start-7 md:row-span-3 md:row-start-3 m-2">
         <h2>ステータス</h2>
         <div class="border-2 text-sm">
           <div class="my-2 p-2">
@@ -103,18 +103,28 @@
           <div class="my-2 p-2">
             <p class="text-sm lg:text-base">連続記録日数：<%= @consecutive_days %> 日</p>
           </div>
+          <div class="mt-2 p-2">
+            <p class="text-sm lg:text-base">獲得バッジ</p>
+            <div class="grid grid-cols-5 grid-row-2 border border-black mx-4">
+              <% @user.badges.each do |badge| %>
+              <div class="badge">
+                <%= image_tag badge.image, class: "w-8 h-8 m-4" %>
+              </div>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- 非同期表示 -->
-      <div class="md:col-span-1 md:col-start-7 md:row-span-1 md:row-start-2
-                  h-full md:mx-4 relative z-50 md:z-auto">
+      <div class="md:col-span-1 md:col-start-6 md:row-span-2 md:row-start-2
+                 relative z-50 md:z-auto">
         <!-- nama編集画面 -->
         <div id="name-edit-form"></div>
         <!-- avatar編集画面 -->
         <div id="avatar-edit-form"></div>
       </div>
-      <div class="md:col-span-3 md:col-start-7 md:row-span-2 md:row-start-2">
+      <div class="md:col-span-3 md:col-start-6 md:row-span-2 md:row-start-2">
         <!-- キャラクター変更画面 -->
         <div id="character-form-container"></div>
       </div>

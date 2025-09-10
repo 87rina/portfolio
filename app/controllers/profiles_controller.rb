@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
 
   def show
     @user = current_user
+    @badges = Badge.all
   end
 
   # 名前編集
