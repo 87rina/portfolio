@@ -28,7 +28,7 @@ class User < ApplicationRecord
     dates.each_cons(2) { |prev, curr| count += 1 if prev == curr + 1 }
     count
   end
-      
+
   private
   # <プロフィール>
   # 保存時に画像サイズをリサイズしてS3へのアップロード容量を制御
