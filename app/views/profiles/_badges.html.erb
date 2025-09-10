@@ -1,0 +1,17 @@
+<div class="grid grid-cols-5 gap-4">
+  <% @badges.each do |badge| %>
+    <% owned = @user.badges.include?(badge) %>
+    <div class="badge-cell flex flex-col items-center justify-center p-2 border rounded-lg
+                <%= owned ? 'bg-white' : 'bg-gray-100 opacity-50' %>">
+      
+      <% if owned %>
+        <%= image_tag "badges/#{badge.image_filename}", class: "w-16 h-16 rounded-full" %>
+        <p class="text-sm font-bold mt-2"><%= badge.name %></p>
+      <% else %>
+        <!-- 未獲得のときは仮の空枠 -->
+        <div class="w-16 h-16 rounded-full border-2 border-dashed border-gray-400"></div>
+        <p class="text-sm text-gray-400 mt-2">???</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

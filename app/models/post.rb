@@ -6,4 +6,10 @@ class Post < ApplicationRecord
 
   attribute :session_id, :string
   belongs_to :guest_user, class_name: "User", foreign_key: "session_id", optional: true
+
+  after_create :check_badges # バッジ付与を投稿後にチェック
+
+  def check_badges
+    BadgeService.new(user).evaluate! # ユーザーの状態を評価して、必要ならバッジを付与
+  end
 end

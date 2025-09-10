@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :ai_responses, through: :posts
   belongs_to :character, optional: true
   has_one_attached :avatar
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 
   before_save :resize_avatar
   # Include default devise modules. Others available are:
