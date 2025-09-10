@@ -10,11 +10,24 @@ class User < ApplicationRecord
   has_many :badges, through: :user_badges
 
   before_save :resize_avatar
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, omniauth_providers: %i[ line ]
+
+  # posts集計のインスタンスメソッド
+  def total_posts_count # 累計記録数
+    posts.count
+  end
+
+  def consecutive_days # 連続記録日数
+    dates = posts.pluck(:created_at).map(&:to_date).uniq.sort.reverse
+    count = 1
+    dates.each_cons(2) { |prev, curr| count += 1 if prev == curr + 1 }
+    count
+  end
 
   private
   # <プロフィール>
