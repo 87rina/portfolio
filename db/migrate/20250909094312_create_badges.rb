@@ -4,7 +4,7 @@ class CreateBadges < ActiveRecord::Migration[7.2]
       t.string :name
       t.string :description
       t.string :condition
-      
+
       t.timestamps
     end
   end

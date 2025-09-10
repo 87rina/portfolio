@@ -2,7 +2,7 @@ class BadgeService
   def initialize(user)
     @user = user
   end
-  
+
   def evaluate!
     check_first_post
     check_50_posts
@@ -38,16 +38,15 @@ class BadgeService
       give_badge(badge_name)
     end
   end
-  
+
   def calculate_consecutive_days(dates)
     count = 1
     dates.each_cons(2) { |prev, curr| count += 1 if prev == curr + 1 }
     count
   end
-  
+
   def give_badge(name)
     badge = Badge.find_by(name: name)
     @user.badges << badge if badge && !@user.badges.include?(badge) # すでに持っている場合は重複しないようにチェック
   end
 end
-  
