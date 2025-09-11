@@ -1,15 +1,21 @@
 <div class="container mx-auto px-4">
   <div class="w-full">
-    <div class="grid grid-cols-1 grid-row-5 md:grid-cols-10 w-full justify-center p-4">
-      <div class="md:col-span-10 md:row-start-1">
+    <div class="grid grid-cols-6 grid-row-10 md:grid-cols-12 w-full justify-center p-4">
+      <div class="col-span-6 md:col-span-12 md:row-start-1">
         <h1 class="text-2xl text-center font-bold my-6 text-gray-600"><%= t('.title') %></h1> 
       </div>
 
       <!-- 画面左：アバター表示 -->
-      <div class="md:col-start-1 md:col-span-2 md:row-span-2 md:row-start-2 md:flex md:flex-col text-center items-center md:mt-10">
+      <div class="col-span-2 col-start-2 row-start-2 flex items-center
+                  md:col-start-1 md:col-span-2 md:row-span-2 md:row-start-3
+                  md:flex-col md:mt-10 md:m-2">
         <div id="avatar-area">
           <%= render "profiles/avatar_display", user: @user %>
         </div>
+      </div>
+      <div class="col-span-2 col-start-4 row-span-1 row-start-2 flex items-center flex-col mt-2
+                  md:col-start-1 md:col-span-2 md:row-span-1 md:row-start-5
+                  md:m-2">
         <div id="main-username">
           <%= render "shared/username", user: @user %>
         </div>
@@ -20,7 +26,9 @@
       </div>
 
       <!-- 画面中央：基本情報表示 -->
-      <div class="col-span-2 md:col-span-3 md:col-start-3 md:row-span-2 md:row-start-2 flex flex-col m-2">
+      <div class="col-span-6  col-start-1 row-start-3 flex flex-col m-2
+                  md:col-span-4 md:col-start-3 md:row-span-6 md:row-start-3
+                  md:ml-4">
         <h2>基本情報</h2>
         <div class="border-2 text-sm">
           <div class="my-4 p-2">
@@ -76,7 +84,8 @@
       </div>
 
       <!-- 画面右：各種設定状況 -->
-      <div class="col-span-1 md:col-span-3 md:col-start-7 md:row-start-2 m-2">
+      <div class="col-span-6 col-start-1 row-start-4 m-2
+                  md:col-span-4 md:col-start-8 md:row-span-2 md:row-start-3">
         <h2>各種設定状況</h2>
         <div class="border-2 text-sm">
           <div class="my-4 p-2">
@@ -94,7 +103,8 @@
       </div>
 
       <!-- 画面右下：ステータス -->
-      <div class="col-span-1 md:col-span-3 md:col-start-7 md:row-span-3 md:row-start-3 m-2">
+      <div class="col-span-6 col-start-1 row-start-5
+                  md:col-span-4 md:col-start-8 md:row-span-4 md:row-start-5 m-2">
         <h2>ステータス</h2>
         <div class="border-2 text-sm">
           <div class="my-2 p-2">
@@ -105,10 +115,10 @@
           </div>
           <div class="mt-2 p-2">
             <p class="text-sm lg:text-base">獲得バッジ</p>
-            <div class="grid grid-cols-5 grid-row-2 border border-black mx-4">
+            <div class="grid grid-cols-5 grid-row-2 mx-4">
               <% @user.badges.each do |badge| %>
               <div class="badge">
-                <%= image_tag badge.image, class: "w-8 h-8 m-4" %>
+                <%= image_tag badge.image, class: "w-8 h-8 m-4 border rounded-md"%>
               </div>
               <% end %>
             </div>
@@ -117,14 +127,16 @@
       </div>
 
       <!-- 非同期表示 -->
-      <div class="md:col-span-1 md:col-start-6 md:row-span-2 md:row-start-2
-                 relative z-50 md:z-auto">
+      <div class="col-span-4 col-start-1 row-start-3
+                  md:col-span-1 md:col-start-7 md:row-span-1 md:row-start-3
+                  relative z-50 md:z-auto">
         <!-- nama編集画面 -->
         <div id="name-edit-form"></div>
         <!-- avatar編集画面 -->
         <div id="avatar-edit-form"></div>
       </div>
-      <div class="md:col-span-3 md:col-start-6 md:row-span-2 md:row-start-2">
+      <div class="col-span-5 col-start-1 row-start-4
+                  md:col-span-4 md:col-start-7 md:row-span-6 md:row-start-3">
         <!-- キャラクター変更画面 -->
         <div id="character-form-container"></div>
       </div>
