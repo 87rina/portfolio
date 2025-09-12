@@ -1,0 +1,48 @@
+<div class="mx-10 my-4">
+  <!-- ページトップ -->
+  <div class="grid grid-cols-1 md:grid-cols-5 grid-rows-1 md:grid-rows-2 w-full justify-center mb-5">
+    <div class="row-start-3 md:col-span-1 md:row-start-1">
+      <%= render "button", back_text: "カレンダーに戻る", back_path: "#" %>
+    </div>
+    <div class="row-span-1  md:col-span-3 md:row-start-1">
+      <h1 class="text-2xl md:text-3xl lg:text-4xl mt-4 text-gray-600 text-center">ポジティブカレンダー</h1>
+    </div>
+    <div class="row-start-2 md:col-span-1 md:row-start-1">
+      <%= render "total" %>
+    </div>
+  </div>
+
+  <!-- カレンダー -->
+  <div class="md:mx-32">
+    <table class="table-fixed w-full border">
+      <thead>
+        <tr>
+          <% %w[SUN MON TUE WED THU FRI SAT].each do |day| %>
+            <th class="text-sm md:text-base"><%= day %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% first_day = @date.beginning_of_month %>
+        <% last_day = @date.end_of_month %>
+        <% start_date = first_day.beginning_of_week(:sunday) %>
+        <% end_date = last_day.end_of_week(:sunday) %>
+
+        <% (start_date..end_date).to_a.in_groups_of(7) do |week| %>
+          <tr>
+            <% week.each do |day| %>
+              <% posts = @posts_by_date[day] || [] %>
+              <td class="border h-16 align-top text-center text-sm
+                         md:text-left md:text-base md:p-2">
+                <%= day.day %>
+                <% if posts.any? %>
+                  <%= link_to '●', posts_path(date: day), class: 'text-red-500 block mt-1' %>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
