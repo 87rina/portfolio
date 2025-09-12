@@ -1,0 +1,10 @@
+<div class="flex items-center justify-center space-x-4 mt-8">
+  <!-- 前月リンク -->
+  <%= link_to "◀︎", calendar_posts_path(month: date.prev_month.beginning_of_month), class: "text-cyan-400 hover:text-cyan-600" %>
+
+  <!-- 現在の月 -->
+  <span class="font-bold"><%= date.strftime('%Y年%m月') %></span>
+
+  <!-- 翌月リンク -->
+  <%= link_to "▶︎", calendar_posts_path(month: date.next_month.beginning_of_month), class: "text-cyan-400 hover:text-cyan-600" %>
+</div> 

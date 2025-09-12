@@ -10,6 +10,10 @@
     <div class="row-start-2 md:col-span-1 md:row-start-1">
       <%= render "total" %>
     </div>
+    <!-- 年月表示・切り替え -->
+    <div class="row-start-4 md:col-span-3 md:row-start-2 md:col-start-2">
+      <%= render "change_month", date: @date %>
+    </div>
   </div>
 
   <!-- カレンダー -->
