@@ -41,7 +41,11 @@ Rails.application.routes.draw do
   get "profile_setting", to: "descriptions#profile_setting", as: :profile_setting
 
   resources :chats, only: [ :index, :create ]
-  resources :posts, only: [ :index, :show, :destroy ]
+  resources :posts, only: [ :index, :show, :destroy ] do
+    collection do
+      get :calendar
+    end
+  end
   resource :profile, only: [ :show ] do
     get :edit_name
     patch :update_name
