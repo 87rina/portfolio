@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       @posts = @user.posts.where(created_at: date.beginning_of_day..date.end_of_day)
                           .order(created_at: :desc).page(params[:page])
     else
-      @posts = @user.posts.order(created_at: :desc).page(params[:page])
+      @posts = Post.none
     end
 
     @date = params[:month] ? Date.parse(params[:month]) : Date.today.beginning_of_month

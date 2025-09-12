@@ -1,12 +1,15 @@
 <div class="mx-10 my-4">
   <!-- ページトップ -->
-  <div class="grid grid-cols-1 md:grid-cols-5 grid-rows-1 md:grid-rows-2 w-full justify-center mb-5">
+  <div class="grid grid-cols-1 md:grid-cols-5 grid-rows-1 md:grid-rows-2 w-full justify-center mb-5"> 
+    <!-- 画面遷移ボタン -->
     <div class="row-start-3 md:col-span-1 md:row-start-1">
-      <%= render "button", back_text: "カレンダーに戻る", back_path: "#" %>
+      <%= render "button_calendar" %>
     </div>
+    <!-- タイトル -->
     <div class="row-span-1  md:col-span-3 md:row-start-1">
       <h1 class="text-2xl md:text-3xl lg:text-4xl mt-4 text-gray-600 text-center">ポジティブカレンダー</h1>
     </div>
+    <!-- 記録集計 -->
     <div class="row-start-2 md:col-span-1 md:row-start-1">
       <%= render "total" %>
     </div>
@@ -37,10 +40,12 @@
             <% week.each do |day| %>
               <% posts = @posts_by_date[day] || [] %>
               <td class="border h-16 align-top text-center text-sm
-                         md:text-left md:text-base md:p-2">
+                         md:text-left md:text-base md:pl-1">
                 <%= day.day %>
-                <% if posts.any? %>
-                  <%= link_to '●', posts_path(date: day), class: 'text-red-500 block mt-1' %>
+                <% if posts.any? %> 
+                  <%= link_to posts_path(date: day) do %>
+                    <%= image_tag "calendar.png", class: "mx-auto w-8 h-8"%>
+                  <% end %>
                 <% end %>
               </td>
             <% end %>

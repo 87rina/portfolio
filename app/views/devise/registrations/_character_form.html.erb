@@ -27,7 +27,7 @@
         <% if defined?(current_user) && current_user.present? && current_user.character.present? %>
           <%= image_tag current_user.character.image, class: "rounded-full border-2 border-gray-300 size-20 object-cover"%>
         <% else %>
-          <%= image_tag "characters/default.png", class: "rounded-full border-2 border-gray-300 size-20 object-cover" %>
+          <%= image_tag "default.png", class: "rounded-full border-2 border-gray-300 size-20 object-cover" %>
         <% end %>
       </div>
     </div>  

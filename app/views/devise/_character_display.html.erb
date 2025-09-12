@@ -2,6 +2,6 @@
   <% if defined?(user) && user.present? && user.character.present? %>
     <%= image_tag user.character.image, alt: user.character.name, size: "50x50"%>
   <% else %>
-    <%= image_tag "characters/default.png", alt: "デフォルト", size: "50x50" %>
+    <%= image_tag "default.png", alt: "デフォルト", size: "50x50" %>
   <% end %>
 </div>
