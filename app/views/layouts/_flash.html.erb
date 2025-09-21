@@ -1,5 +1,12 @@
 <div id="flash">
   <% flash.each do |key, value| %>
-    <div class="flash flash-<%= key %>"><%= value %></div>
-  <% end %>  
+    <% css_class = case key.to_sym
+      when :notice then "bg-green-100 border border-teal-400 text-teal-700"
+      when :alert  then "bg-red-100 border border-rose-400 text-rose-700"
+      else "bg-gray-100 border border-gray-400 text-gray-700"
+    end %>
+    <div id="flash" class="absolute top-12 h-10 rounded left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md <%= css_class %>">
+      <%= value %>
+    </div>
+  <% end %>
 </div>
