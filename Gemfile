@@ -39,7 +39,8 @@ gem "omniauth-rails_csrf_protection"
 # 管理画面
 gem "activeadmin", "~> 3.3"
 gem "cancancan", "~> 3.6", ">= 3.6.1"
-gem "sassc-rails"
+gem "sass-embedded"
+gem "sassc", require: false   # 依存解決用
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
