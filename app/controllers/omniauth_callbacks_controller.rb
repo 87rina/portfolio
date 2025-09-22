@@ -33,7 +33,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in(:user, @profile) # Deviseの機能で、ログイン処理を実行
       flash[:notice] = "ログインしました"
     end
-    
+
     redirect_to root_path
   end
 

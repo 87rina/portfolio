@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   after_create :check_badges # バッジ付与を投稿後にチェック
 
   def check_badges
-    if self.user.present? 
+    if self.user.present?
       BadgeService.new(self.user).evaluate! # ユーザーの状態を評価して、必要ならバッジを付与
     end
   end
