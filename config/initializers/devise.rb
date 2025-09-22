@@ -315,4 +315,5 @@ Devise.setup do |config|
   config.omniauth :line,
   Rails.application.credentials.dig(:line, :key),
   Rails.application.credentials.dig(:line, :secret)
+  scope: 'profile openid email' # LINE の OAuth2 認可リクエスト
 end

@@ -10,6 +10,7 @@
             <% end %>
           </ul> 
         <% end %>
+
         <div>
           <%= f.label :name, class: "text-sm font-medium text-gray-600" %>
           <%= f.text_field :name, class: "rounded-full mt-1 mb-6 w-full px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500" %>
@@ -29,16 +30,21 @@
           <%= f.label :password_confirmation, class: "text-sm font-medium text-gray-700" %>
           <%= f.password_field :password_confirmation, class: "rounded-full mt-1 mb-6 w-full px-3 py-2 border border-gray-300 shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500" %>
         </div>
+
         <div class="flex justify-center mb-4">
           <%= f.submit '登録', class: "w-200 border-4 border-amber-300 hover:bg-amber-300 text-gray font-bold mx-5 py-2 px-4 rounded-md shadow-md transition" %>
-           <%= form_with url: user_line_omniauth_authorize_path, method: :post, data: { turbo: false } do %>
-            <button type="submit" class="flex items-center mx-5 px-4 py-2 rounded-md text-white" style="background-color:#06C755">
+
+          <!-- LINEログイン -->
+          <%= link_to user_line_omniauth_authorize_path,
+                      data: { turbo: false },
+                      class: "flex items-center mx-5 px-4 py-2 rounded-md text-white",
+                      style: "background-color:#06C755" do %>
             <%= image_tag "btn_base.png", alt: "LINE Icon", class: "w-8 h-8 mr-2" %>
-            ログイン
-            </button>
+          ログイン
           <% end %>
         </div>
-        <% end %>
+      <% end %>
+
       <div class="text-center">
         <%= link_to 'すでにアカウントをお持ちの方はこちら', new_user_session_path, class: "text-amber-400 hover:text-amber-600 block" %>
       </div>  
