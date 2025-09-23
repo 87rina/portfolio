@@ -36,6 +36,8 @@ gem "rails-i18n", "~> 7.0.0"
 # LINEログイン用
 gem "omniauth-line"
 gem "omniauth-rails_csrf_protection"
+# LINE通知用
+gem "sidekiq-cron", "~> 2.3"
 # 管理画面
 gem "activeadmin", "~> 3.3"
 gem "cancancan", "~> 3.6", ">= 3.6.1"
