@@ -29,6 +29,10 @@ class User < ApplicationRecord
     count
   end
 
+  def last_posted_at # 最終投稿日　LINE通知機能に使用
+    posts.order(created_at: :desc).limit(1).pluck(:created_at).first
+  end
+
   private
   # <プロフィール>
   # 保存時に画像サイズをリサイズしてS3へのアップロード容量を制御
