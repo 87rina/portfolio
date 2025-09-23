@@ -1,0 +1,3 @@
+check_inactive_users:
+  cron: "0 9 * * *"
+  class: "CheckInactiveUsersJob"
