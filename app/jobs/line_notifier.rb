@@ -3,8 +3,8 @@ class LineNotifyJob < ApplicationJob
 
   def perform(user_id, message)
     user = User.find(user_id)
-    return if user.uid.blank?
+    return if user.line_user_id.blank?
 
-    LineNotifier.push_message(user.uid, message)
+    LineNotifier.push_message(user.line_user_id, message)
   end
 end
