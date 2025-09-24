@@ -60,4 +60,10 @@ Rails.application.routes.draw do
   namespace :user do
     resource :account_password, only: [ :edit, :update ], controller: "account_passwords"
   end
+
+  # 利用規約等
+  namespace :legals do
+    resource :privacy_policy, only: [ :show ]
+    resource :terms_of_service, only: [ :show ]
+  end
 end
