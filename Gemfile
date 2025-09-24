@@ -26,7 +26,7 @@ gem "kaminari"
 # 認証機能
 gem "devise"
 # チャット用
-gem "ruby-openai", "~> 8.1"
+gem "ruby-openai", "~> 8.3"
 gem "sidekiq", "~> 7.2"
 # Radis用
 gem "redis", "~> 4.8"
