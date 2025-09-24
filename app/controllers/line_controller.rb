@@ -3,7 +3,7 @@ class LineController < ApplicationController
 
   def webhook
     body = request.body.read
-    signature = request.env['HTTP_X_LINE_SIGNATURE']
+    signature = request.env["HTTP_X_LINE_SIGNATURE"]
 
     client = Line::Bot::Client.new do |config|
       config.channel_secret = Rails.application.credentials.dig(:line, :channel_secret)
@@ -19,7 +19,7 @@ class LineController < ApplicationController
     events.each do |event|
       case event
       when Line::Bot::Event::Follow
-        line_user_id = event['source']['userId']
+        line_user_id = event["source"]["userId"]
 
         # 誰のline_user_idか判定
         # LINE連携を待機している特定のユーザーをデータベースから探す
