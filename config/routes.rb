@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   get "how_to_write", to: "descriptions#how_to_write", as: :how_to_write
   get "how_to_use", to: "descriptions#how_to_use", as: :how_to_use
   get "profile_setting", to: "descriptions#profile_setting", as: :profile_setting
+  # line友達登録
+  post "line/webhook", to: "line#webhook"
 
   resources :chats, only: [ :index, :create ]
   resources :posts, only: [ :index, :show, :destroy ] do
