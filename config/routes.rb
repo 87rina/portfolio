@@ -64,5 +64,6 @@ Rails.application.routes.draw do
   # 利用規約等
   namespace :legals do
     resource :privacy_policy, only: [ :show ]
+    resource :terms_of_service, only: [ :show ]
   end
 end
