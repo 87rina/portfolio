@@ -15,7 +15,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
-         :omniauthable, omniauth_providers: %i[ line ]
+         :omniauthable, omniauth_providers: [ :line ]
 
   # posts集計のインスタンスメソッド
   def total_posts_count # 累計記録数
