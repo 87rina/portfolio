@@ -316,4 +316,5 @@ Devise.setup do |config|
   Rails.application.credentials.dig(:line, :key),
   Rails.application.credentials.dig(:line, :secret),
   scope: "profile openid email" # LINE の OAuth2 認可リクエスト
+  redirect_uri: "#{ENV['APP_URL']}/users/auth/line/callback"
 end
