@@ -564,6 +564,7 @@ DEPENDENCIES
   jsbundling-rails
   kaminari
   letter_opener_web (~> 2.0)
+  omniauth
   omniauth-line
   omniauth-rails_csrf_protection
   pg (~> 1.1)

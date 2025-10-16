@@ -34,6 +34,7 @@ gem "redis", "~> 4.8"
 gem "devise-i18n"
 gem "rails-i18n", "~> 7.0.0"
 # LINEログイン用
+gem "omniauth"
 gem "omniauth-line"
 gem "omniauth-rails_csrf_protection"
 # LINE通知用
