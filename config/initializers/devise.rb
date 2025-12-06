@@ -312,9 +312,12 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
   # LINEログイン用
+  # OmniAuthの設定
   config.omniauth :line,
   Rails.application.credentials.dig(:line, :key),
   Rails.application.credentials.dig(:line, :secret),
   scope: "profile openid email", # LINE の OAuth2 認可リクエスト
   redirect_uri: "#{ENV['APP_URL']}/users/auth/line/callback"
+  # CSRF保護の有効化
+  config.omniauth_path_prefix = '/users/auth'
 end
