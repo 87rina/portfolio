@@ -40,7 +40,7 @@ gem "omniauth-rails_csrf_protection"
 # LINE通知用
 gem "sidekiq-cron", "~> 2.3"
 # 管理画面
-gem "activeadmin", "~> 3.3"
+gem "activeadmin", "~> 3.4"
 gem "cancancan", "~> 3.6", ">= 3.6.1"
 gem "sass-embedded"
 gem "sassc", require: false   # 依存解決用
