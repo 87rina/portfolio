@@ -33,10 +33,6 @@ gem "redis", "~> 4.8"
 # 翻訳
 gem "devise-i18n"
 gem "rails-i18n", "~> 7.0.0"
-# LINEログイン用
-gem "omniauth"
-gem "omniauth-line"
-gem "omniauth-rails_csrf_protection"
 # LINE通知用
 gem "sidekiq-cron", "~> 2.3"
 # 管理画面

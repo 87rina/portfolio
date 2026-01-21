@@ -1,4 +1,3 @@
-require "omniauth-line"
 # frozen_string_literal: true
 
 # Assuming you have not yet modified this file, each configuration option below
@@ -312,12 +311,5 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-  # LINEログイン用
-  # OmniAuthの設定
-  config.omniauth :line,
-  Rails.application.credentials.dig(:line, :key),
-  Rails.application.credentials.dig(:line, :secret),
-  scope: "profile openid email" # LINE の OAuth2 認可リクエスト
-  # CSRF保護の有効化
   # config.omniauth_path_prefix = '/users/auth'
 end
